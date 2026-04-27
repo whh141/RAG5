@@ -1,0 +1,17 @@
+# 忽略所有 .log 文件
+*.log
+# 忽略 Visual Studio Code 的工作区设置文件
+.vscode/
+#忽略环境配置文件
+.env
+# 忽略所有预训练模型
+pre_train_model/
+# 忽略其他大文件或缓存
+*.pth
+*.bin
+*.safetensors
+__pycache__/
+vector_cache/
+.gradio/
+all_text.txt
+images/

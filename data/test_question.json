@@ -1,0 +1,242 @@
+[
+  {
+    "question": "本科生休学最多可以申请几次？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "办理休学需要上传哪些材料？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "办理复学需要哪些材料？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "退学申请要交什么材料？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "保留学籍申请要准备什么？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "学籍异动业务电话是多少？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "连续请假超过多久应该办休学？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "休学期满后什么时候申请复学？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "complex_reasoning",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "哪些情况会被退学处理？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "complex_reasoning",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "每学期一般最多选多少学分？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "学分制收费怎么收？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "哪些属于免费学分？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "课程绩点怎么算？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "2018级之前绩点怎么算？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "自助打印机能打印哪些证明？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "自助打印机在哪些校区有？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "补办学生证要带什么？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "学生证补办地点在哪？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "学生证补办多少钱？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "学生证补办什么时候办理？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "通识核心课最少修多少学分？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "所有本科生必修的通识核心课学分有哪些？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "文科生通识核心课怎么修？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "complex_reasoning",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "理工医学生通识核心课怎么修？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "complex_reasoning",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "学校一天的上课时间怎么安排？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "管理人员办公时间是什么？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "毕业论文一般由哪些部分组成？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "毕业论文摘要一般写多少？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "毕业论文关键词写几个？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  },
+  {
+    "question": "毕业论文参考文献一般要多少篇？",
+    "answer_1": "",
+    "answer_2": "",
+    "answer_3": "",
+    "intent_label": "simple_fact",
+    "route_label": "retrieve_local"
+  }
+]

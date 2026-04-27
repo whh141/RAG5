@@ -1,0 +1,97 @@
+# ============================================================
+# RAG 配置
+# ============================================================
+# LLM_BACKEND="ollama".  #可选ollama, openai, vllm(vllm为调用本地模型，目前只支持千问，路径默认为./pre_train_model/m3e-large)
+
+# OLLAMA_HOST="http://localhost:11434"
+# OLLAMA_MODEL=""
+# OLLAMA_MAX_WORKERS="1"
+# OLLAMA_TIMEOUT="900"
+
+LLM_BACKEND="openai"
+OPENAI_API_KEY="3124048b565e4940b3ac903a64b12a86.DHWlj3VEePOIMZr9"
+OPENAI_API_BASE="https://open.bigmodel.cn/api/v1"
+OPENAI_MODEL_NAME="deepseek-chat"
+
+# ============================================================
+# 嵌入模型配置
+# ============================================================
+# 可选值: "local" (本地模型), "api" (API 服务), 或 "ollama" (Ollama 服务)
+EMBEDDING_BACKEND="local"
+
+# 本地嵌入模型路径
+EMBEDDING_MODEL_PATH="./pre_train_model/m3e-large"
+
+# API 嵌入模型配置 (使用 OpenAI 兼容接口)
+EMBEDDING_API_TYPE="openai"        #openai 或 jina
+EMBEDDING_API_KEY=""
+EMBEDDING_API_BASE=""
+EMBEDDING_MODEL_NAME="text-embedding-3-small"
+
+# Ollama 嵌入模型配置
+OLLAMA_EMBEDDING_BASE_URL="http://localhost:11434"
+OLLAMA_EMBEDDING_MODEL=""
+
+# ============================================================
+# 评分模型配置 (test_score.py 使用)
+# ============================================================
+# 可选值: "local" (本地 text2vec) 或 "api" (OpenAI/Jina API)
+SCORING_BACKEND="local"
+
+# 本地评分模型配置 (SCORING_BACKEND="local" 时使用)
+SCORING_MODEL_PATH="./pre_train_model/text2vec-base-chinese"
+SCORING_DEVICE="cpu"
+
+# API 评分模型配置 (SCORING_BACKEND="api" 时使用)
+SCORING_API_TYPE="jina"  # 可选: "openai" 或 "jina"
+SCORING_API_KEY=""
+SCORING_API_BASE="" 
+SCORING_MODEL_NAME=""
+
+# ============================================================
+# Rerank 模型配置
+# ============================================================
+# 可选值: "local" (本地模型) 或 "api" (API 服务)
+RERANK_BACKEND="local"
+
+# API 服务商: "cohere", "jina", "custom" (仅当 RERANK_BACKEND="api" 时使用)
+RERANK_API_PROVIDER="jina"
+
+# 本地 Rerank 模型路径
+RERANK_MODEL_PATH="./pre_train_model/bge-reranker-large"
+
+# API Rerank 配置 (完整的 API 端点 URL)
+RERANK_API_KEY=""
+RERANK_API_BASE=""
+RERANK_MODEL_NAME=""
+RERANK_TOP_N=10
+
+# ============================================================
+# Agent 模型配置 (修改这里选择不同模型)
+# ============================================================
+# 可选值: "ollama" 或 "openai" (openai 兼容阿里云、DeepSeek 等)
+AGENT_LLM_BACKEND="openai"
+
+# OpenAI 兼容接口配置
+OPENAI_API_KEY="3124048b565e4940b3ac903a64b12a86.DHWlj3VEePOIMZr9"
+OPENAI_API_BASE="https://open.bigmodel.cn/api/v1"
+OPENAI_MODEL_NAME="deepseek-chat"
+
+# Agent 专用模型 (可单独配置不同节点使用不同模型)
+# 如果不设置，默认使用 OPENAI_MODEL_NAME
+AGENT_INTENT_MODEL=""       # 意图分类模型
+AGENT_PLANNER_MODEL=""      # 规划模型
+AGENT_SYNTHESIZE_MODEL=""   # 答案合成模型
+
+# ============================================================
+# 搜索工具(这里使用tavily，要去申请一个api key)
+# ============================================================
+TAVILY_API_KEY="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"
+
+# ============================================================
+# LangSmith 可观测性(可选是否需要langsmith观测agent运行)
+# ============================================================
+LANGSMITH_TRACING=false                                    #true or false (不需要加双引号)
+LANGSMITH_API_KEY=""
+LANGCHAIN_ENDPOINT="https://eu.api.smith.langchain.com"    #美国和欧洲服务器url不一样，这里是欧洲的，美国的请自行搜索
+LANGSMITH_PROJECT="customer-service-agent-allapi"          #自定义项目名称
