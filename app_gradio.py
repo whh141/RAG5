@@ -1,12 +1,12 @@
-﻿#!/usr/bin/env python
+#!/usr/bin/env python
 # coding: utf-8
 """
     RAG 问答系统 - Gradio 6 交互界面
 兼容 Gradio 6.x 的 Web 演示界面
 """
 
-import time
 import os
+import time
 from typing import Any, Dict, Generator, List, Tuple
 
 _LOCAL_NO_PROXY = "127.0.0.1,localhost,::1"
@@ -23,8 +23,6 @@ os.environ["no_proxy"] = (
 
 import gradio as gr
 
-# Agent 系统导入
-#from pdf_parse import DataProcess
 from faiss_retriever import FaissRetriever
 from bm25_retriever import BM25
 from rerank_model import reRankLLM
@@ -38,9 +36,8 @@ from agent.state import AgentState
 from agent.nodes.tool_executor import set_tools
 
 from pdf_parse import load_knowledge_documents
-# ============================================================
-# 全局变量：存储已初始化的组件
-# ============================================================
+
+
 agent_graph = None
 
 
@@ -57,19 +54,7 @@ def initialize_system():
 
     base = "."
 
-    # 1. 加载 PDF 数据
     print("\n[1/6]  解析 PDF 文档...")
-    #dp = DataProcess(pdf_path=base + "/data/train_a.pdf")
-    #dp.ParseBlock(max_seq=1024)
-    #dp.ParseBlock(max_seq=512)
-    #dp.ParseAllPage(max_seq=256)
-    #dp.ParseAllPage(max_seq=512)
-    #dp.ParseOnePageWithRule(max_seq=256)
-    #dp.ParseOnePageWithRule(max_seq=512)
-    #data = dp.data
-    #print(f"   共解析 {len(data)} 个文档块")
-
-
     pdf_dir = base + "/data/kb_docs"
     documents = load_knowledge_documents(
         kb_dir=pdf_dir,
@@ -77,28 +62,23 @@ def initialize_system():
     )
     print(f"data load ok, total chunks: {len(documents)}")
 
-    # 2. 初始化 FAISS
     print("\n[2/6]  初始化 FAISS 检索器...")
     faiss_retriever = FaissRetriever(documents=documents)
     print("   FAISS 检索器已就绪")
 
-    # 3. 初始化 BM25
     print("\n[3/6]  初始化 BM25 检索器...")
     bm25_retriever = BM25(documents)
     print("   BM25 检索器已就绪")
 
-    # 4. 初始化 LLM
     print(f"\n[4/6]  初始化 LLM ({LLM_BACKEND})...")
     qwen7 = base + "/pre_train_model/Qwen-7B-Chat"
     llm = get_llm_model(model_path=qwen7, backend=LLM_BACKEND)
     print(f"   LLM 后端 {LLM_BACKEND} 已就绪")
 
-    # 5. 初始化 Rerank
     print("\n[5/6]  初始化重排序模型...")
     rerank = reRankLLM()
     print("   重排序模型已就绪")
 
-    # 6. 初始化 Agent 工具和图
     print("\n[6/6]   初始化 RAG 主链路...")
 
     rag_tool = RAGTool(
@@ -358,33 +338,120 @@ def create_gradio_interface():
     """创建 Gradio 6 界面"""
 
     custom_css = """
-    .status-box {
-        background-color: #f0f8ff;
-        border-left: 4px solid #4a90e2;
-        padding: 15px;
-        border-radius: 5px;
-        font-family: 'Monaco', 'Courier New', monospace;
-        font-size: 13px;
+    html, body, .gradio-container {
+        background: #f3efe7 !important;
+    }
+    body {
+        position: relative;
+        min-height: 100vh;
+        overflow-x: hidden;
+        background:
+            radial-gradient(circle at 18% 16%, rgba(246, 196, 92, 0.42) 0 6%, rgba(246, 196, 92, 0) 22%),
+            radial-gradient(circle at 78% 22%, rgba(80, 119, 188, 0.35) 0 10%, rgba(80, 119, 188, 0) 28%),
+            radial-gradient(circle at 66% 74%, rgba(217, 151, 95, 0.24) 0 14%, rgba(217, 151, 95, 0) 30%),
+            linear-gradient(135deg, #f2e6cf 0%, #d6dff0 28%, #7d9ac7 52%, #425f8d 74%, #f1d9a2 100%);
+        background-attachment: fixed;
+    }
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.42;
+        background:
+            repeating-linear-gradient(
+                115deg,
+                rgba(255, 255, 255, 0.10) 0 10px,
+                rgba(90, 121, 175, 0.06) 10px 22px,
+                rgba(237, 195, 120, 0.08) 22px 34px
+            );
+        mix-blend-mode: soft-light;
+        filter: blur(1px);
+    }
+    .hero-block {
+        margin-bottom: 18px;
+        padding: 8px 2px 14px 2px;
+        border-bottom: 1px solid #d9e2ec;
+    }
+    .hero-title {
+        margin: 0;
+        color: #12263a;
+        font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    .hero-subtitle {
+        margin: 8px 0 0 0;
+        color: #3d4c5c;
+        font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.7;
     }
     .chatbot {
         height: 600px;
     }
+    .status-box {
+        background: linear-gradient(180deg, rgba(251, 253, 255, 0.78) 0%, rgba(244, 248, 251, 0.70) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.52);
+        border-radius: 14px;
+        padding: 18px 18px 14px 18px;
+        box-shadow: 0 10px 24px rgba(18, 38, 58, 0.08);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-size: 13px;
+        color: #1f2d3d;
+    }
+    .status-box h3 {
+        margin: 0 0 12px 0;
+        color: #12263a;
+        font-size: 16px;
+        font-weight: 700;
+    }
+    .status-box p {
+        margin: 0;
+        color: #526375;
+        line-height: 1.7;
+    }
+    .tips-box {
+        margin-top: 14px;
+        padding: 16px 18px;
+        background: rgba(255, 255, 255, 0.74);
+        border: 1px solid rgba(255, 255, 255, 0.42);
+        border-radius: 14px;
+        color: #314255;
+        box-shadow: 0 8px 20px rgba(18, 38, 58, 0.05);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+    .tips-box h3 {
+        margin: 0 0 10px 0;
+        color: #12263a;
+        font-size: 15px;
+        font-weight: 700;
+    }
+    .tips-box p {
+        margin: 8px 0;
+        line-height: 1.7;
+    }
+    .footer-time {
+        margin-top: 8px;
+        text-align: center;
+        color: #5b6978;
+        font-size: 12px;
+        letter-spacing: 0.3px;
+    }
     """
 
-    # 注意：Gradio 6 中 theme / css 应在 launch() 里传入
-    with gr.Blocks(title="校园 RAG 问答演示") as demo:
+    with gr.Blocks(title="知识库问答系统") as demo:
         gr.Markdown(
             """
-        #  校园 RAG 问答演示
-
-        基于 **LangGraph + RAG** 的校园问答系统，具备以下能力：
-        -  **多轮对话**：理解上下文，支持指代消解
-        -  **混合检索**：FAISS + BM25 + Rerank
-        -  **证据抽取**：答案必须基于可追溯证据
-        -  **时效检索**：仅在 time_sensitive 路由中联网
-        -  **动态路由**：simple_fact / complex_reasoning / time_sensitive
-
-        ---
+        <div class="hero-block">
+            <p class="hero-title"><strong>知识库问答系统</strong></p>
+            <p class="hero-subtitle"><strong>面向知识库检索、证据引用与问答生成的一体化交互界面。</strong></p>
+        </div>
         """
         )
 
@@ -412,49 +479,31 @@ def create_gradio_interface():
             with gr.Column(scale=1):
                 status_box = gr.Markdown(
                     """
-                    ### 系统状态
-
-                    等待用户输入...
+                    <h3>系统状态</h3>
+                    <p>等待用户输入...</p>
                     """,
                     elem_classes=["status-box"],
                 )
 
                 gr.Markdown(
                     """
-                ---
-                ### 使用提示
-
-                **本地知识库问答：**
-                - 学生证补办在哪里办？
-                - 学分制怎么收费？
-                - 成绩复核流程是什么？
-                - 学籍异动有哪些办理要求？
-
-                **时效问题：**
-                - 本学期什么时候开始退补选？
-                - 本周还能补办学生证吗？
-
-                **多轮追问：**
-                - 它什么时候可以办？
-                - 还需要什么材料？
+                <div class="tips-box">
+                    <h3>提问示例</h3>
+                    <p><strong>本地知识库问答</strong><br>学生证补办在哪里办？ 学分制怎么收费？ 成绩复核流程是什么？</p>
+                    <p><strong>时效问题</strong><br>本学期什么时候开始退补选？ 本周还能补办学生证吗？</p>
+                    <p><strong>多轮追问</strong><br>它什么时候可以办？ 还需要什么材料？</p>
+                </div>
                 """
                 )
 
         gr.Markdown(
             """
-        ---
-        <center>
-        <small>
-        Powered by LangGraph + RAG |
-        后端: {backend} |
-        2025
-        </small>
-        </center>
-        """.format(backend=LLM_BACKEND)
+        <div class="footer-time">{current_time}</div>
+        """.format(current_time=time.strftime("%Y-%m-%d %H:%M:%S"))
         )
 
         def respond(message: str, chat_history: List[Dict[str, Any]] | None):
-            """处理用户输入（Gradio 6 messages 格式）"""
+            """处理用户输入（Gradio messages 格式）"""
             message = (message or "").strip()
             chat_history = list(chat_history or [])
 

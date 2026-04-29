@@ -1,0 +1,94 @@
+{
+  "experiment": "conversation_persistence_smoke",
+  "total": 14,
+  "passed": 14,
+  "failed": 0,
+  "pass_rate": 1.0,
+  "uses_production_db": false,
+  "results": [
+    {
+      "test_item": "初始会话列表为空",
+      "status": "PASS",
+      "elapsed_ms": 11.955,
+      "note": ""
+    },
+    {
+      "test_item": "创建会话",
+      "status": "PASS",
+      "elapsed_ms": 15.955,
+      "note": ""
+    },
+    {
+      "test_item": "空会话详情可读取",
+      "status": "PASS",
+      "elapsed_ms": 6.683,
+      "note": ""
+    },
+    {
+      "test_item": "第一轮聊天写入成功",
+      "status": "PASS",
+      "elapsed_ms": 16.257,
+      "note": ""
+    },
+    {
+      "test_item": "第一轮聊天无历史输入",
+      "status": "PASS",
+      "elapsed_ms": 0.002,
+      "note": ""
+    },
+    {
+      "test_item": "第二轮聊天写入成功",
+      "status": "PASS",
+      "elapsed_ms": 13.633,
+      "note": ""
+    },
+    {
+      "test_item": "第二轮自动读取上一轮历史",
+      "status": "PASS",
+      "elapsed_ms": 0.001,
+      "note": ""
+    },
+    {
+      "test_item": "消息顺序为 user/assistant/user/assistant",
+      "status": "PASS",
+      "elapsed_ms": 8.345,
+      "note": ""
+    },
+    {
+      "test_item": "首条用户消息自动生成标题",
+      "status": "PASS",
+      "elapsed_ms": 5.441,
+      "note": ""
+    },
+    {
+      "test_item": "重命名会话成功",
+      "status": "PASS",
+      "elapsed_ms": 14.896,
+      "note": ""
+    },
+    {
+      "test_item": "空消息返回 422",
+      "status": "PASS",
+      "elapsed_ms": 6.313,
+      "note": ""
+    },
+    {
+      "test_item": "无效 session 返回 404",
+      "status": "PASS",
+      "elapsed_ms": 5.212,
+      "note": ""
+    },
+    {
+      "test_item": "删除会话成功",
+      "status": "PASS",
+      "elapsed_ms": 17.31,
+      "note": ""
+    },
+    {
+      "test_item": "删除后详情返回 404",
+      "status": "PASS",
+      "elapsed_ms": 22.806,
+      "note": ""
+    }
+  ]
+}

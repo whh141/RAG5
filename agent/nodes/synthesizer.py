@@ -18,7 +18,7 @@ def synthesize_answer_node(state: AgentState) -> AgentState:
     elif answer_source == "composite":
         draft_answer = _synthesize_composite_answer(state.get("sub_results", []))
     elif answer_source == "refuse":
-        draft_answer = (
+        draft_answer = state.get("metadata", {}).get("refuse_answer", "").strip() or (
             "该问题不属于当前校园教学服务知识库的回答范围，"
             "系统不会基于无关知识生成答案。"
         )

@@ -1,0 +1,14 @@
+{
+  "run_id": "exp_20260428_e2e_01",
+  "purpose": "Record non-secret model and retrieval configuration for reproducibility.",
+  "status": "not_completed_due_to_shell_approval_timeout",
+  "note": "The command that imports project configuration and writes resolved runtime values did not run. Do not record API keys in this file.",
+  "fields_to_record_after_successful_run": [
+    "LLM_BACKEND",
+    "AGENT_LLM_BACKEND or ModelConfig.BACKEND",
+    "EMBEDDING_BACKEND",
+    "RERANK_BACKEND",
+    "SCORING_BACKEND",
+    "TAVILY_API_KEY_CONFIGURED as boolean"
+  ]
+}

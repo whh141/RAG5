@@ -1,0 +1,13 @@
+﻿id,sample_type,question,expected_route,actual_intent,actual_route,answer_source,reflection_count,total_time_sec,question_decompose_time_sec,intent_classify_time_sec,planning_time_sec,tool_execution_time_sec,composite_execution_time_sec,synthesize_time_sec,reflection_time_sec,finalize_time_sec,error
+EVAL001,simple_fact,本科生休学最多可以申请几次？,retrieve_local,simple_fact,retrieve_local,local_rag,1,27.173523,1.4e-05,2.683354,1.6e-05,22.692571,0.0,1.8e-05,1.793292,2e-05,
+EVAL002,simple_fact,办理休学需要上传哪些材料？,retrieve_local,simple_fact,retrieve_local,local_rag,1,19.820891,3.1e-05,1.50108,0.000175,16.212925,0.0,1.3e-05,2.100772,6e-06,
+EVAL003,simple_fact,办理复学需要哪些材料？,retrieve_local,simple_fact,retrieve_local,local_rag,1,18.585292,1.1e-05,1.495709,9e-06,14.990686,0.0,1e-05,2.09602,1e-05,
+EVAL008,complex_reasoning,休学期满后什么时候申请复学？,retrieve_local,simple_fact,retrieve_local,local_rag,1,19.932026,2e-05,1.902369,1.1e-05,15.893615,0.0,1.4e-05,2.13139,1.4e-05,
+EVAL009,complex_reasoning,哪些情况会被退学处理？,retrieve_local,simple_fact,retrieve_local,local_rag,1,20.426123,2e-05,2.466088,2.2e-05,15.89767,0.0,1.4e-05,2.058156,7e-06,
+EVAL023,complex_reasoning,文科生通识核心课怎么修？,retrieve_local,complex_reasoning,retrieve_local,local_rag,1,21.538849,1.8e-05,1.684808,1.2e-05,17.96041,0.0,1.3e-05,1.889238,8e-06,
+ROUTE090,time_sensitive,今天明德楼B座自助打印窗口开放吗？,retrieve_web,time_sensitive,retrieve_web,web_fresh,3,44.756898,1.5e-05,1.573419,2.647803,33.229652,0.0,4e-05,7.294704,7e-06,
+ROUTE091,time_sensitive,本学期什么时候开始退补选？,retrieve_web,time_sensitive,retrieve_web,web_fresh,3,19.956295,2.7e-05,1.641192,1.920143,9.450728,0.0,6.1e-05,6.934565,7e-06,
+ROUTE092,time_sensitive,本周还能补办学生证吗？,retrieve_web,time_sensitive,retrieve_web,web_fresh,3,24.195232,1.3e-05,1.744232,1.750364,13.350402,0.0,3.8e-05,7.342467,1.3e-05,
+OOD001,ood,中国足球的队长是谁？,refuse,ood,refuse,refuse,1,2.98761,2.9e-05,1.355624,1e-05,1.7e-05,0.0,1e-05,1.625633,8e-06,
+OOD002,ood,如何预防新冠肺炎？,refuse,,,,0,13.157227,1.7e-05,1.460012,1.1e-05,11.695202,0.0,0.0,0.0,0.0,未能从本地文档中抽取可用证据
+OOD003,ood,明天济南天气怎么样？,refuse,time_sensitive,retrieve_web,web_fresh,1,6.458557,1.4e-05,1.41906,9e-06,2.991188,0.0,1.3e-05,2.045673,5e-06,

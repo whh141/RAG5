@@ -1,0 +1,4 @@
+﻿method,sample_count,failed,answer_pass_rate,avg_semantic_similarity,citation_rate,reasoning_chain_rate,route_accuracy,avg_reflection_count
+direct_rag,15,0,1.0,0.855133,1.0,1.0,1.0,0.0
+agent_no_reflection,15,0,1.0,0.881061,1.0,0.4,1.0,0.0
+full_agent,15,0,1.0,0.874864,1.0,0.3333,1.0,1.0

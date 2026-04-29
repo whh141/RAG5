@@ -1,0 +1,1034 @@
+{
+  "experiment": "retrieval_ablation",
+  "sample_count": 30,
+  "methods": [
+    "bm25_only",
+    "faiss_only",
+    "hybrid",
+    "hybrid_rerank"
+  ],
+  "k_values": [
+    1,
+    3,
+    5,
+    8,
+    10,
+    20
+  ],
+  "semantic_threshold": 0.72,
+  "metric_note": "This report uses semantic coverage against ground_truth because eval_qa.jsonl does not contain gold support document labels. It is not strict Recall@K/MRR.",
+  "summary": [
+    {
+      "method": "bm25_only",
+      "sample_count": 30,
+      "semantic_threshold": 0.72,
+      "semantic_mrr": 1.0
+    },
+    {
+      "method": "faiss_only",
+      "sample_count": 30,
+      "semantic_threshold": 0.72,
+      "semantic_mrr": 1.0
+    },
+    {
+      "method": "hybrid",
+      "sample_count": 30,
+      "semantic_threshold": 0.72,
+      "semantic_mrr": 0.977778
+    },
+    {
+      "method": "hybrid_rerank",
+      "sample_count": 30,
+      "semantic_threshold": 0.72,
+      "semantic_mrr": 0.983333
+    }
+  ],
+  "at_k": [
+    {
+      "method": "bm25_only",
+      "k": 1,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.950665
+    },
+    {
+      "method": "bm25_only",
+      "k": 3,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "bm25_only",
+      "k": 5,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "bm25_only",
+      "k": 8,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "bm25_only",
+      "k": 10,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "bm25_only",
+      "k": 20,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "faiss_only",
+      "k": 1,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.9589
+    },
+    {
+      "method": "faiss_only",
+      "k": 3,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "faiss_only",
+      "k": 5,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "faiss_only",
+      "k": 8,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "faiss_only",
+      "k": 10,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "faiss_only",
+      "k": 20,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "hybrid",
+      "k": 1,
+      "semantic_coverage_at_k": 0.966667,
+      "avg_best_similarity_at_k": 0.93638
+    },
+    {
+      "method": "hybrid",
+      "k": 3,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.953978
+    },
+    {
+      "method": "hybrid",
+      "k": 5,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "hybrid",
+      "k": 8,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "hybrid",
+      "k": 10,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "hybrid",
+      "k": 20,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "hybrid_rerank",
+      "k": 1,
+      "semantic_coverage_at_k": 0.966667,
+      "avg_best_similarity_at_k": 0.948474
+    },
+    {
+      "method": "hybrid_rerank",
+      "k": 3,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "hybrid_rerank",
+      "k": 5,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "hybrid_rerank",
+      "k": 8,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "hybrid_rerank",
+      "k": 10,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    },
+    {
+      "method": "hybrid_rerank",
+      "k": 20,
+      "semantic_coverage_at_k": 1.0,
+      "avg_best_similarity_at_k": 0.962038
+    }
+  ],
+  "details": [
+    {
+      "id": "EVAL008",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.97207
+    },
+    {
+      "id": "EVAL009",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.979936
+    },
+    {
+      "id": "EVAL023",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.930485
+    },
+    {
+      "id": "EVAL024",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.928304
+    },
+    {
+      "id": "EVAL032",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.951044
+    },
+    {
+      "id": "EVAL033",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.962399
+    },
+    {
+      "id": "EVAL036",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.960427
+    },
+    {
+      "id": "EVAL037",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.983234
+    },
+    {
+      "id": "EVAL039",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.96295
+    },
+    {
+      "id": "EVAL049",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.97207
+    },
+    {
+      "id": "EVAL050",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.979936
+    },
+    {
+      "id": "EVAL066",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.930485
+    },
+    {
+      "id": "EVAL067",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.928304
+    },
+    {
+      "id": "EVAL078",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.951044
+    },
+    {
+      "id": "EVAL079",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.962399
+    },
+    {
+      "id": "EVAL001",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.954257
+    },
+    {
+      "id": "EVAL002",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.985411
+    },
+    {
+      "id": "EVAL003",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.980594
+    },
+    {
+      "id": "EVAL004",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.977551
+    },
+    {
+      "id": "EVAL005",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.982619
+    },
+    {
+      "id": "EVAL006",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.953389
+    },
+    {
+      "id": "EVAL007",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.930213
+    },
+    {
+      "id": "EVAL010",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.913305
+    },
+    {
+      "id": "EVAL011",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.977149
+    },
+    {
+      "id": "EVAL012",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.973935
+    },
+    {
+      "id": "EVAL013",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.972895
+    },
+    {
+      "id": "EVAL014",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.962672
+    },
+    {
+      "id": "EVAL015",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.976387
+    },
+    {
+      "id": "EVAL016",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.983074
+    },
+    {
+      "id": "EVAL017",
+      "method": "bm25_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.982597
+    },
+    {
+      "id": "EVAL008",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.97207
+    },
+    {
+      "id": "EVAL009",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.979936
+    },
+    {
+      "id": "EVAL023",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.930485
+    },
+    {
+      "id": "EVAL024",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.928304
+    },
+    {
+      "id": "EVAL032",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.951044
+    },
+    {
+      "id": "EVAL033",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.962399
+    },
+    {
+      "id": "EVAL036",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.960427
+    },
+    {
+      "id": "EVAL037",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.983234
+    },
+    {
+      "id": "EVAL039",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.96295
+    },
+    {
+      "id": "EVAL049",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.97207
+    },
+    {
+      "id": "EVAL050",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.979936
+    },
+    {
+      "id": "EVAL066",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.930485
+    },
+    {
+      "id": "EVAL067",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.928304
+    },
+    {
+      "id": "EVAL078",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.951044
+    },
+    {
+      "id": "EVAL079",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.962399
+    },
+    {
+      "id": "EVAL001",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.954257
+    },
+    {
+      "id": "EVAL002",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.985411
+    },
+    {
+      "id": "EVAL003",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.980594
+    },
+    {
+      "id": "EVAL004",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.977551
+    },
+    {
+      "id": "EVAL005",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.982619
+    },
+    {
+      "id": "EVAL006",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.953389
+    },
+    {
+      "id": "EVAL007",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.930213
+    },
+    {
+      "id": "EVAL010",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.913305
+    },
+    {
+      "id": "EVAL011",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.977149
+    },
+    {
+      "id": "EVAL012",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.973935
+    },
+    {
+      "id": "EVAL013",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.972895
+    },
+    {
+      "id": "EVAL014",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.962672
+    },
+    {
+      "id": "EVAL015",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.976387
+    },
+    {
+      "id": "EVAL016",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.983074
+    },
+    {
+      "id": "EVAL017",
+      "method": "faiss_only",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.982597
+    },
+    {
+      "id": "EVAL008",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.97207
+    },
+    {
+      "id": "EVAL009",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.979936
+    },
+    {
+      "id": "EVAL023",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.930485
+    },
+    {
+      "id": "EVAL024",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.928304
+    },
+    {
+      "id": "EVAL032",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.951044
+    },
+    {
+      "id": "EVAL033",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.962399
+    },
+    {
+      "id": "EVAL036",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.960427
+    },
+    {
+      "id": "EVAL037",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.983234
+    },
+    {
+      "id": "EVAL039",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.96295
+    },
+    {
+      "id": "EVAL049",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.97207
+    },
+    {
+      "id": "EVAL050",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.979936
+    },
+    {
+      "id": "EVAL066",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.930485
+    },
+    {
+      "id": "EVAL067",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.928304
+    },
+    {
+      "id": "EVAL078",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.951044
+    },
+    {
+      "id": "EVAL079",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.962399
+    },
+    {
+      "id": "EVAL001",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.954257
+    },
+    {
+      "id": "EVAL002",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.985411
+    },
+    {
+      "id": "EVAL003",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.980594
+    },
+    {
+      "id": "EVAL004",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.977551
+    },
+    {
+      "id": "EVAL005",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.982619
+    },
+    {
+      "id": "EVAL006",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.953389
+    },
+    {
+      "id": "EVAL007",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.930213
+    },
+    {
+      "id": "EVAL010",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.913305
+    },
+    {
+      "id": "EVAL011",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.977149
+    },
+    {
+      "id": "EVAL012",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 3,
+      "semantic_mrr_item": 0.333333,
+      "best_similarity_at_20": 0.973935
+    },
+    {
+      "id": "EVAL013",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.972895
+    },
+    {
+      "id": "EVAL014",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.962672
+    },
+    {
+      "id": "EVAL015",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.976387
+    },
+    {
+      "id": "EVAL016",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.983074
+    },
+    {
+      "id": "EVAL017",
+      "method": "hybrid",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.982597
+    },
+    {
+      "id": "EVAL008",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.97207
+    },
+    {
+      "id": "EVAL009",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.979936
+    },
+    {
+      "id": "EVAL023",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.930485
+    },
+    {
+      "id": "EVAL024",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.928304
+    },
+    {
+      "id": "EVAL032",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.951044
+    },
+    {
+      "id": "EVAL033",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.962399
+    },
+    {
+      "id": "EVAL036",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.960427
+    },
+    {
+      "id": "EVAL037",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.983234
+    },
+    {
+      "id": "EVAL039",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.96295
+    },
+    {
+      "id": "EVAL049",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.97207
+    },
+    {
+      "id": "EVAL050",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.979936
+    },
+    {
+      "id": "EVAL066",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.930485
+    },
+    {
+      "id": "EVAL067",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.928304
+    },
+    {
+      "id": "EVAL078",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.951044
+    },
+    {
+      "id": "EVAL079",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.962399
+    },
+    {
+      "id": "EVAL001",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.954257
+    },
+    {
+      "id": "EVAL002",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.985411
+    },
+    {
+      "id": "EVAL003",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.980594
+    },
+    {
+      "id": "EVAL004",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.977551
+    },
+    {
+      "id": "EVAL005",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.982619
+    },
+    {
+      "id": "EVAL006",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.953389
+    },
+    {
+      "id": "EVAL007",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.930213
+    },
+    {
+      "id": "EVAL010",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.913305
+    },
+    {
+      "id": "EVAL011",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.977149
+    },
+    {
+      "id": "EVAL012",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 2,
+      "semantic_mrr_item": 0.5,
+      "best_similarity_at_20": 0.973935
+    },
+    {
+      "id": "EVAL013",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.972895
+    },
+    {
+      "id": "EVAL014",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.962672
+    },
+    {
+      "id": "EVAL015",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.976387
+    },
+    {
+      "id": "EVAL016",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.983074
+    },
+    {
+      "id": "EVAL017",
+      "method": "hybrid_rerank",
+      "first_semantic_hit_rank": 1,
+      "semantic_mrr_item": 1.0,
+      "best_similarity_at_20": 0.982597
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+figure_id,figure_name,source_file,recommended_chart_type,purpose
+图5-1,端到端问答核心指标图,exp_20260428_e2e_01/summary_metrics.csv,柱状图,展示完整系统问答质量
+图5-2,路由意图混淆矩阵,exp_20260428_route_02/route_confusion_matrix.csv,热力图,展示自主路由分类错误分布
+图5-3,检索策略语义覆盖率@K,exp_20260428_retrieval_03/retrieval_at_k_metrics.csv,折线图,展示不同检索策略随 K 变化的覆盖能力
+图5-4,检索策略语义 MRR 对比,exp_20260428_retrieval_03/retrieval_summary_metrics.csv,柱状图,展示 BM25/FAISS/Hybrid/Rerank 对比
+图5-5,复杂推理方法对比,exp_20260428_complex_04/complex_summary_metrics.csv,分组柱状图,比较普通 RAG、无反思 Agent 和完整 Agent
+图5-6,OOD 拒答与行为匹配指标,exp_20260428_ood_05/ood_summary_metrics.csv,柱状图,展示边界控制能力
+图5-7,不同问题类型响应时间,exp_20260428_efficiency_06/efficiency_summary_metrics.csv,柱状图,展示系统效率
+图5-8,各节点耗时占比,exp_20260428_efficiency_06/stage_time_summary.csv,柱状图或饼图,展示主要耗时来源
+图5-9,错误类型分布,exp_20260428_error_07/error_type_summary.csv,柱状图,展示系统主要失败原因
+表5-1,实验总览表,paper_experiment_overview.csv,表格,说明全部实验设置和结论
+表5-2,关键指标总表,paper_key_metrics.csv,表格,汇总所有实验核心指标

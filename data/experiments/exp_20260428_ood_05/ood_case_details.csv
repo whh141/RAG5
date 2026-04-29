@@ -1,0 +1,62 @@
+﻿id,question,expected_behavior,actual_intent,actual_route,ok,behavior_ok,answer,error
+OOD001,中国足球的队长是谁？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD002,如何预防新冠肺炎？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD003,明天济南天气怎么样？,reject_or_web,time_sensitive,retrieve_web,False,True,"明天（28日）济南天气为多云，气温10~20℃，北风3-5级。 [1][4]
+联网证据未提及济南天气业务是否开放，无法确认。 [1][2][3][4][5]",
+OOD004,苹果公司现任CEO是谁？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD005,比特币现在多少钱？,reject_or_web,time_sensitive,retrieve_web,False,True,"比特币当前价格约为76,951.59美元（Binance数据），但不同平台存在差异，如Bitget显示78,194.06美元，TradingView显示68,799美元。业务开放方面，Coinbase、Bitget、Binance等交易所均可购买比特币，业务正常开放。 [1][2][3][4][5]",
+OOD006,给我推荐一款游戏本,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD007,交通事故如何处理？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD008,如何办理护照？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD009,高血压吃什么药？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD010,Python怎么安装？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD011,今天黄金价格多少？,reject_or_web,time_sensitive,retrieve_web,False,True,根据联网证据，今日（2026-04-27）黄金零售价方面，周大福为1442元/克，六福珠宝为1440元/克，菜百首饰为1415元/克，金至尊为1440元/克，老凤祥为1442元/克，周生生为1436元/克，老庙黄金为1443元/克。国际黄金现货价格为4711.26美元/盎司（约1034.01元/克），上海黄金现货价格为1037.69元/克。黄金期货开盘价为4715.60，最新报4740.90。 [1][2][4],
+OOD012,ChatGPT是什么？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD013,中国高铁最高时速是多少？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD014,最近有什么热门电影？,reject_or_web,time_sensitive,retrieve_web,False,True,根据联网证据，近期热门电影包括2025年5月至6月上映的《雷霆特攻队》《碟中谍8：最终清算》《功夫梦：融合之道》等，以及2026年上映的《木乃伊》《玩具总动员5》等。 [1][2][4],
+OOD015,怎么考驾照？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD016,美国总统是谁？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD017,端午节股市休市吗？,reject_or_web,time_sensitive,retrieve_web,False,True,2025年端午节期间，A股市场（上交所、深交所、北交所）于5月31日（星期六）至6月2日（星期一）休市，6月3日（星期二）起照常开市。 [1][2][5],
+OOD018,考研英语该怎么复习？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD019,怎么学吉他？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD020,iPhone 17什么时候发布？,reject_or_web,time_sensitive,retrieve_web,False,True,iPhone 17 于 2025 年 9 月发布，具体为 9 月 9 日发布，9 月 12 日预购，9 月 19 日发售。 [1][2][3][4][5],
+OOD021,世界杯什么时候开始？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD022,北京地铁几点停运？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD023,上海迪士尼门票多少钱？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD024,哮喘发作怎么办？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD025,医保报销比例是多少？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD026,什么是量子计算？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD027,工商银行利率多少？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD028,新能源汽车购置税政策是什么？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD029,怎么申请营业执照？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD030,哪家航空公司托运行李最便宜？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD031,大学英语六级什么时候报名？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD032,考研国家线是多少？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD033,教师资格证怎么报名？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD034,公务员考试什么时候出公告？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD035,普通话考试怎么报名？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD036,校园食堂哪家最好吃？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD037,宿舍能不能养猫？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD038,校园网怎么开游戏加速？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD039,图书馆周末几点开门？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD040,学校快递站几点关门？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD041,山东大学附近哪里租房便宜？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD042,如何办理签证？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD043,苹果手机怎么截长图？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD044,怎么买基金？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD045,Java和Python哪个好学？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD046,腰疼挂什么科？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD047,山东大学校医院几点开门？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD048,哪款机械键盘适合打游戏？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD049,如何准备雅思考试？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD050,AI绘画软件哪个好用？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD051,火车票候补怎么买？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD052,怎样注销微信账号？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD053,微信提现手续费是多少？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD054,社保断缴怎么办？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD055,怎么查询个人征信？,reject_or_web,,,False,False,,未能从本地文档中抽取可用证据
+OOD056,英雄联盟新版本改了什么？,reject_or_web,time_sensitive,retrieve_web,False,True,英雄联盟最新版本为26.8版本，更新内容包括英雄调整、竞技场模式改动、全新造型与炫彩造型等，具体改动细节需查看官方公告。 [1][4][5],
+OOD057,NBA总冠军是谁？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD058,济南周末适合去哪旅游？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD059,哪款平板适合记笔记？,reject_or_web,ood,refuse,True,True,该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。,
+OOD060,房贷利率现在多少？,reject_or_web,time_sensitive,retrieve_web,False,True,当前最新LPR利率为：1年期3.0%，5年期以上3.5%，自2025年5月起已连续11个月保持不变。 [1][2][4],

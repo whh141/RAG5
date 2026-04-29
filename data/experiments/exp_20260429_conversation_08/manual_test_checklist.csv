@@ -1,0 +1,9 @@
+test_id,test_item,steps,expected_result,status,note
+MANUAL001,页面刷新保留历史,"启动服务; 新建会话; 发送两轮消息; 刷新浏览器; 点击左侧会话",刷新后会话仍在且消息完整,待验证,
+MANUAL002,服务重启保留历史,"启动服务; 新建会话并发送消息; 停止服务; 重新启动服务; 打开页面",历史会话和消息仍可加载,待验证,
+MANUAL003,前端不发送 history,"打开 DevTools Network; 发送消息; 查看 /api/chat/stream 请求 payload",payload 只包含 message 和 session_id,待验证,
+MANUAL004,静态资源缓存更新,"打开 DevTools Network; 刷新页面; 查看 app.js/styles.css 请求",URL 带版本号且根路径响应 Cache-Control: no-store,待验证,
+MANUAL005,三栏布局稳定性,"打开页面; 调整窗口宽度; 切换会话; 展开 trace",左侧历史/中间聊天/右侧状态区域无明显重叠错位,待验证,
+MANUAL006,删除当前会话交互,"创建两个会话; 删除当前会话",左侧列表更新并切换到其他会话或空状态,待验证,
+MANUAL007,重命名会话交互,"创建会话; 执行重命名; 刷新页面",标题更新并持久保留,待验证,
+MANUAL008,生产数据库生成,"启动 server.main; 执行一次新建会话",data/conversations.sqlite3 存在且可读,待验证,

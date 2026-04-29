@@ -1,0 +1,36 @@
+{
+  "run_id": "exp_20260428_e2e_01",
+  "purpose": "Record the datasets used by the first end-to-end QA experiment.",
+  "datasets": [
+    {
+      "path": "data/eval_qa.jsonl",
+      "role": "端到端问答评测集，用于计算问答通过率、平均语义相似度、引用存在率和 QA 路由准确率。",
+      "line_count": 148,
+      "count_status": "completed"
+    },
+    {
+      "path": "data/route_labels.jsonl",
+      "role": "自主路由评测集，用于计算意图分类和路径选择准确率。",
+      "line_count": 133,
+      "count_status": "completed"
+    },
+    {
+      "path": "data/ood_questions.jsonl",
+      "role": "越界问题评测集，用于计算拒答准确率和行为匹配率。",
+      "line_count": 60,
+      "count_status": "completed"
+    },
+    {
+      "path": "data/kb_docs/",
+      "role": "本地 RAG 知识库文档目录。",
+      "line_count": null,
+      "count_status": "not_applicable"
+    },
+    {
+      "path": "data/faq_database.json",
+      "role": "结构化 FAQ 知识文件，会并入本地 RAG 知识库。",
+      "line_count": null,
+      "count_status": "not_applicable"
+    }
+  ]
+}

@@ -7,13 +7,16 @@
 
 import os
 import numpy as np
+import torch
 from typing import Union, List
+from transformers import AutoModel, AutoTokenizer
 
 
 # 从环境变量读取配置
 SCORING_BACKEND = os.environ.get("SCORING_BACKEND", "local").strip().lower()
 SCORING_MODEL_PATH = os.environ.get("SCORING_MODEL_PATH", "./pre_train_model/text2vec-base-chinese")
-SCORING_DEVICE = os.environ.get("SCORING_DEVICE", "cuda:0")
+DEFAULT_SCORING_DEVICE = "cuda:0" if torch.cuda.is_available() else "cpu"
+SCORING_DEVICE = os.environ.get("SCORING_DEVICE", DEFAULT_SCORING_DEVICE)
 
 # API 配置
 SCORING_API_TYPE = os.environ.get("SCORING_API_TYPE", "openai").strip().lower()
@@ -37,6 +40,7 @@ class ScoringModel:
         """
         self.backend = backend or SCORING_BACKEND
         self.model = None
+        self.tokenizer = None
         self._initialize_model()
     
     def _initialize_model(self):
@@ -49,19 +53,13 @@ class ScoringModel:
             raise ValueError(f"不支持的后端: {self.backend}，请使用 'local' 或 'api'")
     
     def _initialize_local_model(self):
-        """初始化本地 text2vec 模型"""
-        try:
-            from text2vec import SentenceModel
-            print(f"  [Scoring] 加载本地模型: {SCORING_MODEL_PATH}")
-            print(f"  [Scoring] 设备: {SCORING_DEVICE}")
-            self.model = SentenceModel(
-                model_name_or_path=SCORING_MODEL_PATH,
-                device=SCORING_DEVICE
-            )
-        except ImportError:
-            raise ImportError(
-                "本地模式需要安装 text2vec: pip install text2vec"
-            )
+        """初始化本地 transformers 编码模型"""
+        print(f"  [Scoring] 加载本地模型: {SCORING_MODEL_PATH}")
+        print(f"  [Scoring] 设备: {SCORING_DEVICE}")
+        self.tokenizer = AutoTokenizer.from_pretrained(SCORING_MODEL_PATH, local_files_only=True)
+        self.model = AutoModel.from_pretrained(SCORING_MODEL_PATH, local_files_only=True)
+        self.model.to(SCORING_DEVICE)
+        self.model.eval()
     
     def _initialize_api_model(self):
         """初始化 API 嵌入模型"""
@@ -113,17 +111,30 @@ class ScoringModel:
             return self._calc_similarity_api(text1, text2)
     
     def _calc_similarity_local(self, text1: str, text2: str) -> float:
-        """使用本地 text2vec 计算相似度（一步完成）"""
-        from text2vec import semantic_search
-        
-        # text2vec 的 semantic_search 直接返回相似度分数
-        vec1 = self.model.encode([text1])
-        vec2 = self.model.encode(text2)
-        
-        results = semantic_search(vec1, vec2, top_k=1)
-        score = results[0][0]['score']
-        
-        return score
+        """使用本地 transformers 编码模型计算余弦相似度"""
+        vectors = self._encode_local([text1, text2])
+        score = float(np.dot(vectors[0], vectors[1]))
+        return max(0.0, min(1.0, score))
+
+    def _encode_local(self, texts: list[str]) -> np.ndarray:
+        encoded = self.tokenizer(
+            texts,
+            padding=True,
+            truncation=True,
+            max_length=512,
+            return_tensors="pt",
+        )
+        encoded = {key: value.to(SCORING_DEVICE) for key, value in encoded.items()}
+        with torch.no_grad():
+            output = self.model(**encoded)
+
+        token_embeddings = output.last_hidden_state
+        attention_mask = encoded["attention_mask"].unsqueeze(-1).expand(token_embeddings.size()).float()
+        summed = torch.sum(token_embeddings * attention_mask, dim=1)
+        counts = torch.clamp(attention_mask.sum(dim=1), min=1e-9)
+        embeddings = summed / counts
+        embeddings = torch.nn.functional.normalize(embeddings, p=2, dim=1)
+        return embeddings.detach().cpu().numpy()
     
     def _calc_similarity_api(self, text1: str, text2: str) -> float:
         """使用 API 计算相似度（需要手动计算余弦相似度）"""

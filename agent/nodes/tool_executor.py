@@ -9,7 +9,7 @@ import copy
 import re
 
 from agent.state import AgentState
-from agent.nodes.intent_classifier import _route_with_llm
+from agent.nodes.intent_classifier import _is_social_query, _route_with_llm
 from agent.nodes.planner import ROUTE_TO_PLAN
 
 
@@ -30,6 +30,7 @@ def tool_execution_node(state: AgentState) -> AgentState:
     intent = state["intent"]
 
     execution = _execute_plan(plan=plan, query=query, intent=intent)
+    state["metadata"] = state.get("metadata", {})
 
     state["rag_result"] = {}
     state["tavily_result"] = None
@@ -38,12 +39,15 @@ def tool_execution_node(state: AgentState) -> AgentState:
     state["reasoning_steps"] = []
     state["answer_source"] = execution["answer_source"]
     state["confidence"] = execution["confidence"]
+    state["metadata"]["refuse_answer"] = ""
 
     if execution["answer_source"] == "local_rag":
         state["rag_result"] = execution["raw_result"]
         state["reasoning_steps"] = execution.get("reasoning_steps", []) or []
     elif execution["answer_source"] == "web_fresh":
         state["tavily_result"] = execution["raw_result"]
+    elif execution["answer_source"] == "refuse":
+        state["metadata"]["refuse_answer"] = execution["answer"]
 
     state["evidence_items"] = execution["evidence_items"]
     state["citations"] = execution["citations"]
@@ -211,7 +215,10 @@ def _execute_plan(plan: list[str], query: str, intent: str) -> dict:
 
     if plan == ["refuse"]:
         print("  [Tool] 执行越界拒答")
-        answer = "该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。"
+        if _is_social_query(query):
+            answer = "你好，我是知识库问答系统。请直接告诉我你想查询的校内业务问题。"
+        else:
+            answer = "该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。"
         return {
             "answer_source": "refuse",
             "answer": answer,

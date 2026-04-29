@@ -1,0 +1,12 @@
+{
+  "run_id": "exp_20260428_e2e_01",
+  "created_at": "2026-04-28",
+  "timezone": "Asia/Shanghai",
+  "cwd": "d:\\VS_projects\\RAG6\\Agent-RAG",
+  "git_head": "405f7696322ef82ab88bd20fee39d8d0a27ad544",
+  "python_executable": "D:\\VS_projects\\RAG6\\Agent-RAG\\venv\\Scripts\\python.exe",
+  "workspace_status_note": "The worktree had pre-existing modified/deleted files before this experiment. These files were not changed by this experiment setup.",
+  "experiment_execution_status": "completed",
+  "output_report": "data\\experiments\\exp_20260428_e2e_01\\eval_report_full.json",
+  "note": "The first full attempt timed out because eval_all.py ran route, QA, and OOD together. The completed run evaluates the full QA set and keeps route/OOD out of the first experiment except for one sample retained by eval_all.py limit semantics."
+}

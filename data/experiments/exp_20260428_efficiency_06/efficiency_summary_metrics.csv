@@ -1,0 +1,5 @@
+﻿sample_type,sample_count,failed,avg_total_time_sec,p50_total_time_sec,p95_total_time_sec,avg_reflection_count
+simple_fact,3,0,21.859902,19.820891,26.43826,1.0
+complex_reasoning,3,0,20.632333,20.426123,21.427576,1.0
+time_sensitive,3,0,29.636142,24.195232,42.700731,3.0
+ood,3,1,7.534465,6.458557,12.48736,0.666667

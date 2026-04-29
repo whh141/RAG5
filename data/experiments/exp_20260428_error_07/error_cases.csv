@@ -1,0 +1,68 @@
+﻿source_experiment,id,question,method,expected_intent,actual_intent,expected_route,actual_route,error_type,reason,error
+e2e_qa,EVAL090,今天明德楼B座自助打印窗口开放吗？,,,,retrieve_web,retrieve_web,答案未通过,semantic_similarity=0.6191422343254089,
+e2e_qa,EVAL091,本学期什么时候开始退补选？,,,,retrieve_web,retrieve_web,答案未通过,semantic_similarity=0.5408362150192261,
+e2e_qa,EVAL092,本周还能补办学生证吗？,,,,retrieve_web,retrieve_web,答案未通过,semantic_similarity=0.7176429033279419,
+e2e_qa,EVAL093,今年文科实践创新大赛什么时候举行？,,,,retrieve_web,retrieve_web,答案未通过,semantic_similarity=0.6075935959815979,
+e2e_qa,EVAL094,中国足球的队长是谁？,,,,retrieve_web,refuse,QA 路由错误,"expected_route=retrieve_web, actual_route=refuse",
+e2e_qa,EVAL095,如何预防新冠肺炎？,,,,retrieve_web,,执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+e2e_qa,EVAL095,如何预防新冠肺炎？,,,,retrieve_web,,QA 路由错误,"expected_route=retrieve_web, actual_route=None",未能从本地文档中抽取可用证据
+e2e_qa,EVAL095,如何预防新冠肺炎？,,,,retrieve_web,,答案未通过,semantic_similarity=None,未能从本地文档中抽取可用证据
+e2e_qa,EVAL095,如何预防新冠肺炎？,,,,retrieve_web,,引用缺失,答案未提供引用或引用列表为空,未能从本地文档中抽取可用证据
+e2e_qa,EVAL104,退补选大概在什么时候？,,,,retrieve_web,retrieve_local,QA 路由错误,"expected_route=retrieve_web, actual_route=retrieve_local",
+e2e_qa,EVAL114,混合式教学申报表里需要写哪些线上考核环节？,,,,retrieve_local,,执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+e2e_qa,EVAL114,混合式教学申报表里需要写哪些线上考核环节？,,,,retrieve_local,,QA 路由错误,"expected_route=retrieve_local, actual_route=None",未能从本地文档中抽取可用证据
+e2e_qa,EVAL114,混合式教学申报表里需要写哪些线上考核环节？,,,,retrieve_local,,答案未通过,semantic_similarity=None,未能从本地文档中抽取可用证据
+e2e_qa,EVAL114,混合式教学申报表里需要写哪些线上考核环节？,,,,retrieve_local,,引用缺失,答案未提供引用或引用列表为空,未能从本地文档中抽取可用证据
+e2e_qa,EVAL115,文科实践创新行动方案什么时候全面提升？,,,,retrieve_web,retrieve_local,QA 路由错误,"expected_route=retrieve_web, actual_route=retrieve_local",
+e2e_qa,EVAL137,文科及社科类学生必须修哪些通识核心课学分？,,,,retrieve_local,retrieve_local,答案未通过,semantic_similarity=0.6582008004188538,
+route,ROUTE008,休学期满后什么时候申请复学？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE009,哪些情况会被退学处理？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE032,毕业论文抽检主要看什么？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE036,课程教学大纲一般包括哪些内容？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE037,实验课有哪些基本纪律和安全要求？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE039,文科实践创新行动方案强调什么培养路径？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE048,如果我是本科生，连续请假超过多久应该办休学？,,simple_fact,complex_reasoning,retrieve_local,retrieve_local,意图错误,"expected_intent=simple_fact, actual_intent=complex_reasoning; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE049,如果我是本科生，休学期满后什么时候申请复学？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE056,如果我是本科生，2018级之前绩点怎么算？,,simple_fact,complex_reasoning,retrieve_local,retrieve_local,意图错误,"expected_intent=simple_fact, actual_intent=complex_reasoning; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE082,课程教学大纲通常包括哪些内容？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE083,如果我是本科生，课程教学大纲一般包括哪些内容？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE084,如果我是本科生，实验课有哪些基本纪律和安全要求？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE094,中国足球的队长是谁？,,time_sensitive,ood,retrieve_web,refuse,意图和路径均错误,"expected_intent=time_sensitive, actual_intent=ood; expected_route=retrieve_web, actual_route=refuse",
+route,ROUTE095,如何预防新冠肺炎？,,time_sensitive,simple_fact,retrieve_web,retrieve_local,意图和路径均错误,"expected_intent=time_sensitive, actual_intent=simple_fact; expected_route=retrieve_web, actual_route=retrieve_local",
+route,ROUTE096,保留学籍期间还交学费吗？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE097,提前毕业还要继续交专业注册学费吗？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE099,学生证补办能不能周末办？,,time_sensitive,simple_fact,retrieve_web,retrieve_local,意图和路径均错误,"expected_intent=time_sensitive, actual_intent=simple_fact; expected_route=retrieve_web, actual_route=retrieve_local",
+route,ROUTE101,毕业论文有学术不端会怎样？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE111,本科毕业论文抽检主要看哪些方面？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE112,哪些行为会影响学士学位授予？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE116,实验课上学生要遵守哪些基本规则？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+route,ROUTE118,文科实践创新行动方案强调哪些培养路径？,,complex_reasoning,simple_fact,retrieve_local,retrieve_local,意图错误,"expected_intent=complex_reasoning, actual_intent=simple_fact; expected_route=retrieve_local, actual_route=retrieve_local",
+ood,OOD002,如何预防新冠肺炎？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD007,交通事故如何处理？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD008,如何办理护照？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD013,中国高铁最高时速是多少？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD015,怎么考驾照？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD016,美国总统是谁？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD021,世界杯什么时候开始？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD022,北京地铁几点停运？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD025,医保报销比例是多少？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD026,什么是量子计算？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD028,新能源汽车购置税政策是什么？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD031,大学英语六级什么时候报名？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD032,考研国家线是多少？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD033,教师资格证怎么报名？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD034,公务员考试什么时候出公告？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD035,普通话考试怎么报名？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD036,校园食堂哪家最好吃？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD037,宿舍能不能养猫？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD038,校园网怎么开游戏加速？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD039,图书馆周末几点开门？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD040,学校快递站几点关门？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD042,如何办理签证？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD045,Java和Python哪个好学？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD047,山东大学校医院几点开门？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD051,火车票候补怎么买？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD053,微信提现手续费是多少？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD054,社保断缴怎么办？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+ood,OOD055,怎么查询个人征信？,,,,,,OOD 执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据
+efficiency,OOD002,如何预防新冠肺炎？,,,,refuse,,效率实验执行异常,未能从本地文档中抽取可用证据,未能从本地文档中抽取可用证据

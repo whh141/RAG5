@@ -1,0 +1,1340 @@
+{
+  "total": 133,
+  "correct": 111,
+  "failed": 0,
+  "accuracy": 0.8346,
+  "failure_rate": 0.0,
+  "failure_reasons": {},
+  "details": [
+    {
+      "id": "ROUTE001",
+      "question": "本科生休学最多可以申请几次？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE002",
+      "question": "办理休学需要上传哪些材料？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE003",
+      "question": "办理复学需要哪些材料？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE004",
+      "question": "退学申请要交什么材料？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE005",
+      "question": "保留学籍申请要准备什么？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE006",
+      "question": "学籍异动业务电话是多少？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE007",
+      "question": "连续请假超过多久应该办休学？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE008",
+      "question": "休学期满后什么时候申请复学？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE009",
+      "question": "哪些情况会被退学处理？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE010",
+      "question": "每学期一般最多选多少学分？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE011",
+      "question": "学分制收费怎么收？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE012",
+      "question": "哪些属于免费学分？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE013",
+      "question": "课程绩点怎么算？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE014",
+      "question": "2018级之前绩点怎么算？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE015",
+      "question": "自助打印机能打印哪些证明？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE016",
+      "question": "自助打印机在哪些校区有？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE017",
+      "question": "补办学生证要带什么？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE018",
+      "question": "学生证补办地点在哪？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE019",
+      "question": "学生证补办多少钱？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE020",
+      "question": "学生证补办什么时候办理？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE021",
+      "question": "通识核心课最少修多少学分？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE022",
+      "question": "所有本科生必修的通识核心课学分有哪些？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE023",
+      "question": "文科生通识核心课怎么修？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE024",
+      "question": "理工医学生通识核心课怎么修？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE025",
+      "question": "学校一天的上课时间怎么安排？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE026",
+      "question": "管理人员办公时间是什么？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE027",
+      "question": "毕业论文一般由哪些部分组成？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE028",
+      "question": "毕业论文摘要一般写多少？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE029",
+      "question": "毕业论文关键词写几个？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE030",
+      "question": "毕业论文参考文献一般要多少篇？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE031",
+      "question": "中文毕业论文最低字数要求是多少？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE032",
+      "question": "毕业论文抽检主要看什么？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE033",
+      "question": "哪些情况会影响学士学位授予？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE034",
+      "question": "授予学士学位通常有什么成绩要求？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE035",
+      "question": "创新素养突破提升包括哪些模块？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE036",
+      "question": "课程教学大纲一般包括哪些内容？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE037",
+      "question": "实验课有哪些基本纪律和安全要求？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE038",
+      "question": "签实践教学基地协议时一般要让对方交哪些材料？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE039",
+      "question": "文科实践创新行动方案强调什么培养路径？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE040",
+      "question": "培养方案一般多久修订一次？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE041",
+      "question": "学生休学最多可以申请几次？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE042",
+      "question": "如果我是本科生，本科生休学最多可以申请几次？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE043",
+      "question": "如果我是本科生，办理休学需要上传哪些材料？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE044",
+      "question": "如果我是本科生，办理复学需要哪些材料？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE045",
+      "question": "如果我是本科生，退学申请要交什么材料？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE046",
+      "question": "如果我是本科生，保留学籍申请要准备什么？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE047",
+      "question": "如果我是本科生，学籍异动业务电话是多少？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE048",
+      "question": "如果我是本科生，连续请假超过多久应该办休学？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE049",
+      "question": "如果我是本科生，休学期满后什么时候申请复学？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE050",
+      "question": "如果我是本科生，哪些情况会被退学处理？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE051",
+      "question": "每学期通常最多选多少学分？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE052",
+      "question": "如果我是本科生，每学期一般最多选多少学分？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE053",
+      "question": "如果我是本科生，学分制收费怎么收？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE054",
+      "question": "如果我是本科生，哪些属于免费学分？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE055",
+      "question": "如果我是本科生，课程绩点怎么算？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE056",
+      "question": "如果我是本科生，2018级之前绩点怎么算？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE057",
+      "question": "如果我是本科生，自助打印机能打印哪些证明？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE058",
+      "question": "如果我是本科生，自助打印机在哪些校区有？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE059",
+      "question": "如果我是本科生，补办学生证要带什么？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE060",
+      "question": "如果我是本科生，学生证补办地点在哪？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE061",
+      "question": "如果我是本科生，学生证补办多少钱？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE062",
+      "question": "如果我是本科生，学生证补办什么时候办理？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE063",
+      "question": "如果我是本科生，通识核心课最少修多少学分？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE064",
+      "question": "所有学生必修的通识核心课学分有哪些？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE065",
+      "question": "如果我是本科生，所有本科生必修的通识核心课学分有哪些？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE066",
+      "question": "如果我是本科生，文科生通识核心课怎么修？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE067",
+      "question": "如果我是本科生，理工医学生通识核心课怎么修？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE068",
+      "question": "如果我是本科生，学校一天的上课时间怎么安排？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE069",
+      "question": "如果我是本科生，管理人员办公时间是什么？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE070",
+      "question": "毕业论文通常由哪些部分组成？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE071",
+      "question": "如果我是本科生，毕业论文一般由哪些部分组成？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE072",
+      "question": "毕业论文摘要通常写多少？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE073",
+      "question": "如果我是本科生，毕业论文摘要一般写多少？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE074",
+      "question": "如果我是本科生，毕业论文关键词写几个？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE075",
+      "question": "毕业论文参考文献通常要多少篇？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE076",
+      "question": "如果我是本科生，毕业论文参考文献一般要多少篇？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE077",
+      "question": "如果我是本科生，中文毕业论文最低字数要求是多少？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE078",
+      "question": "如果我是本科生，毕业论文抽检主要看什么？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE079",
+      "question": "如果我是本科生，哪些情况会影响学士学位授予？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE080",
+      "question": "如果我是本科生，授予学士学位通常有什么成绩要求？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE081",
+      "question": "如果我是本科生，创新素养突破提升包括哪些模块？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE082",
+      "question": "课程教学大纲通常包括哪些内容？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE083",
+      "question": "如果我是本科生，课程教学大纲一般包括哪些内容？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE084",
+      "question": "如果我是本科生，实验课有哪些基本纪律和安全要求？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE085",
+      "question": "签实践教学基地协议时通常要让对方交哪些材料？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE086",
+      "question": "如果我是本科生，签实践教学基地协议时一般要让对方交哪些材料？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE087",
+      "question": "如果我是本科生，文科实践创新行动方案强调什么培养路径？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE088",
+      "question": "培养方案通常多久修订一次？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE089",
+      "question": "如果我是本科生，培养方案一般多久修订一次？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE090",
+      "question": "今天明德楼B座自助打印窗口开放吗？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE091",
+      "question": "本学期什么时候开始退补选？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE092",
+      "question": "本周还能补办学生证吗？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE093",
+      "question": "今年文科实践创新大赛什么时候举行？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE094",
+      "question": "中国足球的队长是谁？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "ood",
+      "expected_route": "retrieve_web",
+      "actual_route": "refuse",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE095",
+      "question": "如何预防新冠肺炎？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE096",
+      "question": "保留学籍期间还交学费吗？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE097",
+      "question": "提前毕业还要继续交专业注册学费吗？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE098",
+      "question": "成绩单能不能打印英文版？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE099",
+      "question": "学生证补办能不能周末办？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE100",
+      "question": "2026年清明节放假期间自助打印机是否开放？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE101",
+      "question": "毕业论文有学术不端会怎样？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE102",
+      "question": "任选课纳入平均学分绩点吗？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE103",
+      "question": "今年有没有新的课程教学大纲模板？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE104",
+      "question": "文科及社科类学生剩余6学分通识核心课怎么修？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE105",
+      "question": "理工及医学类学生剩余通识核心课怎么修？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE106",
+      "question": "管理人员上班时间是什么？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE107",
+      "question": "本科毕业论文中文摘要一般写多少字？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE108",
+      "question": "本科毕业论文关键词一般写几个？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE109",
+      "question": "本科毕业论文参考文献一般需要多少篇？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE110",
+      "question": "中文毕业论文一般不少于多少字？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE111",
+      "question": "本科毕业论文抽检主要看哪些方面？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE112",
+      "question": "哪些行为会影响学士学位授予？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE113",
+      "question": "获得学士学位通常需要达到什么成绩要求？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE114",
+      "question": "创新素养突破提升包含哪些模块？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE115",
+      "question": "课程教学大纲模板通常包括哪些核心栏目？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE116",
+      "question": "实验课上学生要遵守哪些基本规则？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE117",
+      "question": "实践教学基地协议签署时一般需要对方提供哪些材料？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE118",
+      "question": "文科实践创新行动方案强调哪些培养路径？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": false,
+      "error": null
+    },
+    {
+      "id": "ROUTE119",
+      "question": "专业培养方案一般多久修订一次？",
+      "expected_intent": "simple_fact",
+      "actual_intent": "simple_fact",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE120",
+      "question": "本学期还能补办学生证吗？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE121",
+      "question": "今天明德楼B01窗口能办理学生证补办吗？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE122",
+      "question": "本周自助打印机是否正常开放？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE123",
+      "question": "当前学籍异动业务系统是否开放？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE124",
+      "question": "今天本科生院有没有发布新的毕业论文通知？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE125",
+      "question": "今年是否更新了通识核心课修读说明？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE126",
+      "question": "本月还能申请学生证补办吗？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE127",
+      "question": "现在能否办理成绩复核？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE128",
+      "question": "今年学校有没有新的学位授予文件？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE129",
+      "question": "本学期是否还有创新素养突破提升申报安排？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE130",
+      "question": "现在青岛校区还能补办学生证吗？",
+      "expected_intent": "time_sensitive",
+      "actual_intent": "time_sensitive",
+      "expected_route": "retrieve_web",
+      "actual_route": "retrieve_web",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE131",
+      "question": "学位论文有学术不端还能授予学士学位吗？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE132",
+      "question": "休学、退学和保留学籍在材料要求上有什么区别？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    },
+    {
+      "id": "ROUTE133",
+      "question": "文科及社科类学生与理工医学类学生在通识核心课修读要求上有什么区别？",
+      "expected_intent": "complex_reasoning",
+      "actual_intent": "complex_reasoning",
+      "expected_route": "retrieve_local",
+      "actual_route": "retrieve_local",
+      "ok": true,
+      "error": null
+    }
+  ]
+}

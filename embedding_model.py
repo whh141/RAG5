@@ -47,7 +47,7 @@ def get_embedding_model():
 def _get_local_embeddings():
     """获取本地嵌入模型"""
     # from langchain_huggingface import HuggingFaceEmbeddings
-    from langchain_community.embeddings import HuggingFaceEmbeddings
+    from langchain_huggingface import HuggingFaceEmbeddings
     print(f"  [Embedding] 加载本地模型: {EMBEDDING_MODEL_PATH}")
     
     return HuggingFaceEmbeddings(

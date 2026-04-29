@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>知识库问答系统</title>
+    <link rel="stylesheet" href="./styles.css?v=conversation-history-20260429" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Knowledge Base QA</p>
+          <h1>知识库问答系统</h1>
+          <p class="subtitle">稳定启动、流式响应、知识库解耦的生产级问答界面</p>
+        </div>
+        <div id="healthBadge" class="health-badge">检查中</div>
+      </header>
+
+      <section class="layout">
+        <aside class="panel conversation-sidebar">
+          <button id="newConversationButton" class="new-conversation-button" type="button">新对话</button>
+          <div id="conversationList" class="conversation-list"></div>
+        </aside>
+
+        <section class="panel chat-panel">
+          <div class="chat-heading">
+            <span id="currentConversationTitle">新对话</span>
+          </div>
+          <div id="chatList" class="chat-list" aria-live="polite"></div>
+
+          <form id="chatForm" class="composer">
+            <textarea
+              id="messageInput"
+              rows="3"
+              placeholder="输入校园服务问题，支持多轮追问和复合问题"
+              autocomplete="off"
+            ></textarea>
+            <button id="sendButton" type="submit">发送</button>
+          </form>
+        </section>
+
+        <aside class="side-stack">
+          <section class="panel metrics-panel">
+            <div class="panel-title">
+              <span>运行状态</span>
+              <button id="refreshButton" class="ghost-button" type="button">刷新</button>
+            </div>
+            <div class="metric-grid">
+              <article class="metric-card">
+                <span class="metric-label">知识库文件</span>
+                <strong id="fileCount">0</strong>
+                <em>files</em>
+              </article>
+              <article class="metric-card">
+                <span class="metric-label">文档片段</span>
+                <strong id="docCount">0</strong>
+                <em>chunks</em>
+              </article>
+              <article class="metric-card">
+                <span class="metric-label">向量状态</span>
+                <strong id="vectorState">-</strong>
+                <em id="lastRebuild">not ready</em>
+              </article>
+            </div>
+          </section>
+
+          <section class="panel trace-panel">
+            <div class="panel-title trace-title">
+              <span>执行轨迹</span>
+              <button id="copyTraceButton" class="copy-button" type="button">复制</button>
+            </div>
+            <pre id="traceLog" class="trace-log">[system] 等待请求</pre>
+          </section>
+
+          <section class="panel kb-panel">
+            <div class="panel-title">
+              <span>知识库文件</span>
+              <button id="rebuildButton" class="ghost-button" type="button">重新向量化</button>
+            </div>
+            <label class="upload-box">
+              <input id="fileInput" type="file" multiple />
+              <span>上传文件</span>
+            </label>
+            <div id="kbMessage" class="kb-message"></div>
+            <div id="fileList" class="file-list"></div>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <script src="./app.js?v=conversation-history-20260429"></script>
+  </body>
+</html>

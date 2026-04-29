@@ -1,0 +1,9 @@
+﻿stage,total_time_sec,avg_time_sec,time_share
+question_decompose,0.000229,1.9e-05,1e-06
+intent_classify,20.926947,1.743912,0.087589
+planning,6.318585,0.526549,0.026446
+tool_execution,174.365066,14.530422,0.729796
+composite_execution,0.0,0.0,0.0
+synthesize,0.000244,2e-05,1e-06
+reflection,37.31191,3.109326,0.156167
+finalize,0.000105,9e-06,0.0

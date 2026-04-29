@@ -1,0 +1,5 @@
+﻿method,sample_count,semantic_threshold,semantic_mrr,semantic_coverage_at_1,semantic_coverage_at_3,semantic_coverage_at_5,semantic_coverage_at_8,semantic_coverage_at_10,semantic_coverage_at_20
+bm25_only,30,0.72,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+faiss_only,30,0.72,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+hybrid,30,0.72,0.977778,0.966667,1.0,1.0,1.0,1.0,1.0
+hybrid_rerank,30,0.72,0.983333,0.966667,1.0,1.0,1.0,1.0,1.0

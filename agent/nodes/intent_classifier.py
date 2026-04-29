@@ -20,6 +20,32 @@ ROUTE_BY_INTENT = {
     "time_sensitive": "retrieve_web",
     "ood": "refuse",
 }
+SOCIAL_QUERIES = {
+    "你好",
+    "你好啊",
+    "你好呀",
+    "您好",
+    "您好啊",
+    "您好呀",
+    "嗨",
+    "嗨呀",
+    "哈喽",
+    "hello",
+    "hi",
+    "hey",
+    "在吗",
+    "在不在",
+    "有人吗",
+    "谢谢",
+    "感谢",
+    "多谢",
+    "辛苦了",
+    "再见",
+    "拜拜",
+    "早上好",
+    "中午好",
+    "晚上好",
+}
 FOLLOWUP_PRONOUNS = ("它", "这个", "该业务", "这个业务", "该流程", "这个流程", "该事项", "这个事项")
 ROUTINE_TIME_TERMS = (
     "办理时间",
@@ -234,6 +260,14 @@ def _normalize_route_fields(result: dict) -> dict:
 
 
 def _apply_route_contract(result: dict, question: str, last_user_question: str) -> dict:
+    if _is_social_query(question):
+        return {
+            "intent": "ood",
+            "route": "refuse",
+            "reason": "用户输入是社交问候或寒暄，不属于知识库检索问答请求。",
+            "query_rewrite": question.strip(),
+        }
+
     if _is_global_web_query(question):
         return {
             "intent": "time_sensitive",
@@ -327,6 +361,14 @@ def _has_routine_time_intent(question: str) -> bool:
 def _is_global_web_query(question: str) -> bool:
     text = str(question or "").strip()
     return any(term in text for term in GLOBAL_WEB_TERMS)
+
+
+def _is_social_query(question: str) -> bool:
+    text = str(question or "").strip().lower()
+    if not text:
+        return False
+    normalized = re.sub(r"[\s，。！？!?,、；;：:\"'“”‘’（）()【】\[\]<>《》]+", "", text)
+    return normalized in SOCIAL_QUERIES
 
 
 def _rewrite_realtime_query(question: str, service_name: str) -> str:

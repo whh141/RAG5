@@ -49,9 +49,24 @@ data/
 ## 运行
 
 ```bash
+
+虚拟环境命令：
+venv\Scripts\activate
+
 python app_gradio.py
 ```
+```bash
+Fastapi
+venv
+.\venv\Scripts\Activate.ps1
+python -m server.main
 
+启动后访问网址：http://127.0.0.1:8000/
+
+uvicorn启动命令
+
+uvicorn server.main:app --host 127.0.0.1 --port 8000
+```
 批量运行：
 
 ```bash

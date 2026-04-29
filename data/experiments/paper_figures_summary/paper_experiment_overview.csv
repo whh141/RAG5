@@ -1,0 +1,8 @@
+experiment_id,experiment_name,source_dir,sample_scope,key_outputs,main_conclusion
+1,端到端问答效果实验,exp_20260428_e2e_01,QA 148 条,eval_report_full.json; summary_metrics.csv,完整 Agent-RAG 在问答任务上通过率较高且引用存在率高
+2,自主路由实验,exp_20260428_route_02,route 133 条,route_report.json; route_confusion_matrix.csv,路径选择准确率高但 complex_reasoning 与 simple_fact 存在混淆
+3,检索与重排序消融实验,exp_20260428_retrieval_03,分层抽样 30 条,retrieval_summary_metrics.csv; retrieval_at_k_metrics.csv,Top-3 后语义覆盖率均达到 1.0; Hybrid+Rerank 相比 Hybrid 略升
+4,复杂推理能力实验,exp_20260428_complex_04,complex_reasoning 15 条,complex_summary_metrics.csv; complex_case_details.csv,三组方法均通过; Agent 价值主要体现在路由规划反思和可观测链路
+5,OOD 越界拒答实验,exp_20260428_ood_05,OOD 60 条,ood_report.json; ood_error_cases.csv,边界控制不足; 多个越界问题误入本地 RAG 后异常
+6,系统效率实验,exp_20260428_efficiency_06,每类 3 条共 12 条,efficiency_summary_metrics.csv; stage_time_summary.csv,主要耗时集中在 tool_execution 和 reflection
+7,错误分析实验,exp_20260428_error_07,前序实验错误汇总,error_cases.csv; error_type_summary.csv,主要错误来自 OOD 执行异常和意图识别错误
