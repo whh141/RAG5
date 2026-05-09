@@ -1,0 +1,12 @@
+metric,value,description
+qa_total,148,端到端问答评测样本数
+qa_route_accuracy,0.9662,QA 样本中实际路由与期望路由一致的比例
+qa_citation_rate,0.9865,最终答案存在引用或拒答路径的比例
+qa_answer_pass_rate,0.9527,语义相似度达到阈值的答案比例
+qa_avg_semantic_similarity,0.8798,成功评测样本的平均语义相似度
+qa_failure_rate,0.0135,QA 链路执行失败比例
+qa_failed,2,QA 执行异常样本数
+qa_answer_failed,7,答案未通过样本数
+qa_route_failed,5,路由不一致样本数
+qa_citation_failed,2,引用缺失样本数
+

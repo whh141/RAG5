@@ -1,0 +1,11 @@
+item,value,note
+run_id,exp_20260428_e2e_01,环境快照来源实验
+created_at,2026-04-28,实验创建日期
+timezone,Asia/Shanghai,实验时区
+cwd,d:\VS_projects\RAG6\Agent-RAG,项目工作目录
+git_head,405f7696322ef82ab88bd20fee39d8d0a27ad544,实验时记录的 Git HEAD
+python_executable,D:\VS_projects\RAG6\Agent-RAG\venv\Scripts\python.exe,虚拟环境 Python
+experiment_execution_status,completed,端到端实验已完成
+model_config_snapshot,not_completed_due_to_shell_approval_timeout,模型配置快照未完整生成，论文中不应记录未确认的模型运行参数
+workspace_status_note,worktree had pre-existing modified/deleted files,实验前工作区已有非本实验产生的修改
+

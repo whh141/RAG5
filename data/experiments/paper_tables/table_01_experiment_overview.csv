@@ -1,0 +1,11 @@
+table_id,experiment_id,experiment_name,experiment_type,main_goal,input_data,main_metrics,output_files,status,note
+1,exp_20260428_e2e_01,端到端问答效果实验,效果评估,验证完整问答链路的回答质量、路由正确性和引用完整性,data/eval_qa.jsonl,QA 路由准确率;答案通过率;平均语义相似度;引用存在率;执行失败率,summary_metrics.csv;eval_report_full.json,completed,主实验结果
+2,exp_20260428_route_02,自主路由实验,能力评估,验证智能体对问题意图和执行路径的自主判断能力,data/route_labels.jsonl,路由准确率;意图准确率;路径准确率;失败率,route_summary_metrics.csv;route_confusion_matrix.csv,completed,包含混淆矩阵
+3,exp_20260428_retrieval_03,检索消融实验,消融实验,比较 BM25、FAISS、混合检索和重排序的语义覆盖能力,data/eval_qa.jsonl 抽样 30 条,语义 MRR;Coverage@K;平均最佳相似度,retrieval_summary_metrics.csv;retrieval_at_k_metrics.csv,completed,无严格 support_doc_id，因此是语义覆盖率而非严格 Recall@K
+4,exp_20260428_complex_04,复杂推理消融实验,消融实验,比较直接 RAG、无反思智能体和完整智能体在复杂问题上的表现,data/eval_qa.jsonl 复杂问题抽样 15 条,答案通过率;平均语义相似度;引用率;推理链率;平均反思次数,complex_summary_metrics.csv,completed,用于验证自主推理与反思模块作用
+5,exp_20260428_ood_05,越界问题实验,鲁棒性评估,验证系统对知识库外问题的拒答与行为匹配能力,data/ood_questions.jsonl,严格拒答准确率;行为匹配率;失败率;实际路由分布,ood_summary_metrics.csv;ood_error_cases.csv,completed,暴露 OOD 异常路径问题
+6,exp_20260428_efficiency_06,效率实验,效率评估,统计不同类型问题和智能体阶段的耗时,data/eval_qa.jsonl 与 OOD 抽样,平均耗时;P50;P95;阶段耗时占比,efficiency_summary_metrics.csv;stage_time_summary.csv,completed,样本量较小，作为效率剖析
+7,exp_20260428_error_07,错误分析实验,错误分析,汇总各实验失败样本并分类,data/experiments 各实验结果,错误类型计数;错误来源计数,error_type_summary.csv;error_source_summary.csv,completed,多标签错误统计
+8,exp_20260429_conversation_08,会话持久化与前端交互验证,功能回归测试,验证新增 SQLite 会话、会话 API、session_id 聊天协议和前端历史会话功能,临时 SQLite 与 fake runtime,自动测试通过率;逐项功能通过情况,conversation_smoke_report.json;conversation_smoke_results.csv,completed,属于系统功能验证，不并入 RAG 效果指标
+9,exp_20260427_qa01,早期问答实验目录,历史目录,保留早期实验目录占位,未发现结果文件,无,无结果文件,not_available,不纳入论文主表
+

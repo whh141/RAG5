@@ -1,0 +1,8 @@
+metric,value,description
+route_total,133,路由评测样本数
+route_accuracy,0.8346,意图和路径同时正确的比例
+intent_accuracy,0.8346,仅意图分类正确的比例
+path_accuracy,0.9774,仅执行路径选择正确的比例
+route_failure_rate,0.0,路由节点执行失败比例
+route_success_rate,1.0,路由节点成功执行比例
+

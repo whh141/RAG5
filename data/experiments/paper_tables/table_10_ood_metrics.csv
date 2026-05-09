@@ -1,0 +1,11 @@
+metric,value,description
+ood_total,60,OOD 评测样本数
+strict_refuse_accuracy,0.4,actual_route == refuse 的比例
+behavior_match_rate,0.5333,符合 expected_behavior 的比例
+ood_failure_rate,0.4667,OOD 链路执行失败比例
+ood_success_rate,0.5333,OOD 链路成功执行比例
+route_refuse_count,24,实际拒答样本数
+route_retrieve_web_count,8,实际进入时效检索样本数
+route_retrieve_local_count,0,实际误入本地检索样本数
+route_unknown_count,28,无实际路由样本数
+

@@ -1,0 +1,3 @@
+experiment,total,passed,failed,pass_rate,uses_production_db,note
+conversation_persistence_smoke,14,14,0,1.0,false,使用临时 SQLite 和 fake runtime 验证会话持久化 API 级功能
+

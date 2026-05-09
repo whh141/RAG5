@@ -1,0 +1,8 @@
+dataset_path,role,line_count,count_status,used_by
+data/eval_qa.jsonl,端到端问答评测集，用于计算问答通过率、平均语义相似度、引用存在率和 QA 路由准确率,148,completed,端到端问答实验;检索消融实验;复杂推理实验;效率实验
+data/route_labels.jsonl,自主路由评测集，用于计算意图分类和路径选择准确率,133,completed,自主路由实验
+data/ood_questions.jsonl,越界问题评测集，用于计算拒答准确率和行为匹配率,60,completed,越界问题实验;效率实验
+data/kb_docs/,本地 RAG 知识库文档目录,,not_applicable,端到端问答实验;检索消融实验;复杂推理实验
+data/faq_database.json,结构化 FAQ 知识文件，会并入本地 RAG 知识库,,not_applicable,端到端问答实验;检索消融实验;复杂推理实验
+data/conversations.sqlite3,生产运行时会话数据库,,runtime_generated,会话持久化与前端交互验证
+

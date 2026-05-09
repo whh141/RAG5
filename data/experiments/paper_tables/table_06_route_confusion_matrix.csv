@@ -1,0 +1,6 @@
+expected_intent,pred_simple_fact,pred_complex_reasoning,pred_time_sensitive,pred_ood,pred_unknown
+simple_fact,80,2,0,0,0
+complex_reasoning,17,14,0,0,0
+time_sensitive,2,0,17,1,0
+ood,0,0,0,0,0
+

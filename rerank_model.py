@@ -12,14 +12,14 @@ from typing import List, Optional
 
 from langchain_core.documents import Document
 
-# LangChain Rerankers (仅用于 API)
+# LangChain Rerankers
 try:
     from langchain_community.document_compressors import CohereRerank, JinaRerank
 except ImportError:
     CohereRerank = None
     JinaRerank = None
 
-# transformers (用于本地模型)
+# transformers
 try:
     from transformers import AutoModelForSequenceClassification, AutoTokenizer
 except ImportError:
