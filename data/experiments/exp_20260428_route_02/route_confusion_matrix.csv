@@ -1,5 +1,5 @@
 ﻿expected_intent,simple_fact,complex_reasoning,time_sensitive,ood,unknown
 simple_fact,80,2,0,0,0
-complex_reasoning,17,14,0,0,0
+complex_reasoning,1,30,0,0,0
 time_sensitive,2,0,17,1,0
 ood,0,0,0,0,0

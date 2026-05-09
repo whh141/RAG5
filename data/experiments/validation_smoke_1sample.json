@@ -1,0 +1,206 @@
+{
+  "route": {
+    "total": 1,
+    "correct": 1,
+    "failed": 0,
+    "accuracy": 1.0,
+    "failure_rate": 0.0,
+    "failure_reasons": {},
+    "details": [
+      {
+        "id": "ROUTE001",
+        "question": "本科生休学最多可以申请几次？",
+        "expected_intent": "simple_fact",
+        "actual_intent": "simple_fact",
+        "expected_route": "retrieve_local",
+        "actual_route": "retrieve_local",
+        "ok": true,
+        "error": null
+      }
+    ]
+  },
+  "qa": {
+    "total": 1,
+    "failed": 0,
+    "route_accuracy": 1.0,
+    "citation_rate": 1.0,
+    "citation_presence_rate": 1.0,
+    "answer_pass_rate": 1.0,
+    "failure_rate": 0.0,
+    "similarity_threshold": 0.72,
+    "successful_eval_count": 1,
+    "avg_semantic_similarity": 0.9283992052078247,
+    "avg_semantic_similarity_on_success": 0.9283992052078247,
+    "failure_reasons": {},
+    "metric_definitions": {
+      "citation_rate": "当前实现统计的是引用存在率，而非引用正确率。",
+      "avg_semantic_similarity": "仅在成功执行并完成相似度计算的样本上统计。"
+    },
+    "details": [
+      {
+        "id": "EVAL001",
+        "question": "本科生休学最多可以申请几次？",
+        "expected_route": "retrieve_local",
+        "actual_route": "retrieve_local",
+        "answer": "根据现有证据，本科生休学最多可以申请两次，适用于因病或不可抗力的情况 [1][2][3]。",
+        "answer_body": "根据现有证据，本科生休学最多可以申请两次，适用于因病或不可抗力的情况 [1][2][3]。",
+        "ground_truth": "学生因病或不可抗力休学，最多可以申请两次，每次休学期限最长不得超过一年；学生可一次或多次申请休学创业，但累计休学年限不得超过四年。",
+        "semantic_similarity": 0.9283992052078247,
+        "answer_ok": true,
+        "citations": [
+          {
+            "evidence_id": 1,
+            "title": "FAQ FAQ001",
+            "source_file": "data\\faq_database.json",
+            "source_type": "faq_json",
+            "page": null,
+            "chunk_id": 1,
+            "fact": "学生因病或不可抗力休学，最多可以申请两次。"
+          },
+          {
+            "evidence_id": 2,
+            "title": "服务流程-学籍异动",
+            "source_file": "data\\kb_docs\\服务流程-学籍异动.pdf",
+            "source_type": "pdf",
+            "page": 2,
+            "chunk_id": 1,
+            "fact": "学生因病或不可抗力休学，最多可以申请两次。"
+          },
+          {
+            "evidence_id": 3,
+            "title": "山东大学本科学生学籍管理规定（山大教字〔2023〕17号）",
+            "source_file": "data\\kb_docs\\山东大学本科学生学籍管理规定（山大教字〔2023〕17号）.pdf",
+            "source_type": "pdf",
+            "page": 4,
+            "chunk_id": 1,
+            "fact": "学生因病休学，最多可以申请两次。"
+          }
+        ],
+        "route_ok": true,
+        "citation_ok": true,
+        "trace": [
+          {
+            "stage": "question_decompose",
+            "is_composite": false,
+            "sub_question_count": 1,
+            "sub_questions": [
+              "本科生休学最多可以申请几次？"
+            ]
+          },
+          {
+            "stage": "router",
+            "intent": "simple_fact",
+            "route": "retrieve_local",
+            "query_rewrite": "本科生休学最多可以申请几次",
+            "reason": "询问本科生休学申请次数的固定规定，属于本地知识库事实查询。",
+            "decision_source": "llm",
+            "rule_applied": false,
+            "rule_name": "",
+            "original_intent": "",
+            "original_route": "",
+            "original_query_rewrite": ""
+          },
+          {
+            "stage": "planner",
+            "route": "retrieve_local",
+            "plan": [
+              "local_rag"
+            ],
+            "reflection_count": 0,
+            "input_query_rewrite": "本科生休学最多可以申请几次",
+            "query_rewrite": "本科生休学最多可以申请几次",
+            "rewrite_attempted": false,
+            "rewrite_success": false,
+            "rewrite_reason": "not_attempted",
+            "route_change_suggestion_ignored": false
+          },
+          {
+            "stage": "local_rag",
+            "retrieved_count": 25,
+            "reranked_count": 8,
+            "evidence_count": 3,
+            "reasoning_step_count": 0,
+            "citations": [
+              {
+                "evidence_id": 1,
+                "title": "FAQ FAQ001",
+                "source_file": "data\\faq_database.json",
+                "source_type": "faq_json",
+                "page": null,
+                "chunk_id": 1,
+                "fact": "学生因病或不可抗力休学，最多可以申请两次。"
+              },
+              {
+                "evidence_id": 2,
+                "title": "服务流程-学籍异动",
+                "source_file": "data\\kb_docs\\服务流程-学籍异动.pdf",
+                "source_type": "pdf",
+                "page": 2,
+                "chunk_id": 1,
+                "fact": "学生因病或不可抗力休学，最多可以申请两次。"
+              },
+              {
+                "evidence_id": 3,
+                "title": "山东大学本科学生学籍管理规定（山大教字〔2023〕17号）",
+                "source_file": "data\\kb_docs\\山东大学本科学生学籍管理规定（山大教字〔2023〕17号）.pdf",
+                "source_type": "pdf",
+                "page": 4,
+                "chunk_id": 1,
+                "fact": "学生因病休学，最多可以申请两次。"
+              }
+            ]
+          },
+          {
+            "stage": "synthesize",
+            "answer_source": "local_rag",
+            "answer_length": 45
+          },
+          {
+            "stage": "reflection",
+            "reflection_count": 1,
+            "quality_score": 8.0,
+            "notes": [
+              "直接回答了用户问题，明确给出次数为两次。",
+              "答案与检索问题一致，且引用了证据，置信度高。",
+              "未提及休学申请的具体条件、材料等细节，但问题仅询问次数，完整性可接受。"
+            ],
+            "improvement_actions": []
+          },
+          {
+            "stage": "finalize",
+            "answer_source": "local_rag",
+            "citation_count": 3,
+            "final_answer_length": 45
+          }
+        ],
+        "error": null
+      }
+    ]
+  },
+  "ood": {
+    "total": 1,
+    "failed": 0,
+    "refuse_accuracy": 1.0,
+    "strict_refuse_accuracy": 1.0,
+    "behavior_match_rate": 1.0,
+    "failure_rate": 0.0,
+    "failure_reasons": {},
+    "metric_definitions": {
+      "strict_refuse_accuracy": "仅当 route == refuse 时记为成功。",
+      "behavior_match_rate": "若数据集提供 expected_behavior，则按样本期望行为做宽口径匹配。"
+    },
+    "details": [
+      {
+        "id": "OOD001",
+        "question": "中国足球的队长是谁？",
+        "expected_behavior": "reject_or_web",
+        "actual_intent": "ood",
+        "actual_route": "refuse",
+        "answer": "该问题不属于当前校园教学服务知识库的回答范围，系统不会基于无关知识生成答案。",
+        "ok": true,
+        "behavior_ok": true,
+        "error": null
+      }
+    ]
+  }
+}

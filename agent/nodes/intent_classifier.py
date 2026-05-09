@@ -101,10 +101,42 @@ GLOBAL_WEB_TERMS = (
     "国内新闻",
     "国际新闻",
     "社会新闻",
-    "新闻",
     "时政",
     "政策新闻",
     "国家政策",
+)
+GLOBAL_WEB_NEWS_TERMS = ("新闻",)
+LOCAL_NEWS_EXCLUSION_TERMS = (
+    "校园新闻",
+    "校内新闻",
+    "学校新闻",
+    "山东大学新闻",
+    "本科教学新闻",
+    "教务新闻",
+)
+TIME_PREFIXES = ("今天", "今日", "明天", "本周", "这周", "本星期", "本月", "本学期", "今年", "当前", "现在", "目前", "最新")
+NOW_STATUS_TERMS = ("是否", "能不能", "可以办", "能办", "还能", "还开放", "开放", "最新", "截止", "通知")
+EXTRA_SLOT_TERMS = ("材料", "费用", "流程", "地点", "在哪", "哪里", "窗口", "条件")
+ACTION_PREFIXES = ("办理", "申请", "补办", "查询", "领取", "更换", "挂失", "注销")
+COMPLEX_LOCAL_PATTERNS = (
+    "休学期满后什么时候申请复学",
+    "哪些情况会被退学处理",
+    "退学处理条件",
+    "毕业论文抽检主要看什么",
+    "毕业论文抽检主要看哪些方面",
+    "哪些情况会影响学士学位授予",
+    "哪些行为会影响学士学位授予",
+    "影响学士学位授予",
+    "保留学籍期间还交学费",
+    "提前毕业还要继续交专业注册学费",
+    "毕业论文有学术不端会怎样",
+    "毕业论文学术不端后果",
+    "课程教学大纲一般包括哪些内容",
+    "课程教学大纲通常包括哪些内容",
+    "实验课有哪些基本纪律和安全要求",
+    "实验课上学生要遵守哪些基本规则",
+    "文科实践创新行动方案强调什么培养路径",
+    "文科实践创新行动方案强调哪些培养路径",
 )
 SERVICE_SUFFIX_PATTERN = re.compile(
     r"(?:在哪里|在哪|到哪里|去哪|去哪里|怎么办|怎么做|如何办理|如何|"
@@ -113,6 +145,7 @@ SERVICE_SUFFIX_PATTERN = re.compile(
     r"是否开放|还能.*|可以.*|吗|呢|？|\?)"
 )
 VERB_OBJECT_PATTERN = re.compile(r"(补办|办理|申请|领取|更换|挂失|注销)([\u4e00-\u9fa5A-Za-z0-9]+)")
+PARALLEL_SERVICE_PATTERN = re.compile(r"[\u4e00-\u9fa5A-Za-z0-9]+(?:和|与|及|、)[\u4e00-\u9fa5A-Za-z0-9]+")
 
 
 def intent_classify_node(state: AgentState) -> AgentState:
@@ -138,6 +171,12 @@ def intent_classify_node(state: AgentState) -> AgentState:
             "route": state["route"],
             "query_rewrite": state["query_rewrite"],
             "reason": state["route_reason"],
+            "decision_source": route_result.get("decision_source", ""),
+            "rule_applied": route_result.get("rule_applied", False),
+            "rule_name": route_result.get("rule_name", ""),
+            "original_intent": route_result.get("original_intent", ""),
+            "original_route": route_result.get("original_route", ""),
+            "original_query_rewrite": route_result.get("original_query_rewrite", ""),
         }
     )
 
@@ -147,10 +186,14 @@ def intent_classify_node(state: AgentState) -> AgentState:
 
 
 def _route_with_llm(question: str, history: list) -> dict:
-    llm = ModelConfig.get_intent_llm()
-
     history_text = ""
     last_user_question = _last_user_question(history)
+    precheck = _precheck_deterministic_route(question)
+    if precheck:
+        return precheck
+
+    llm = ModelConfig.get_intent_llm()
+
     if history:
         history_text = (
             "\n\n对话历史:\n"
@@ -181,7 +224,9 @@ def _route_with_llm(question: str, history: list) -> dict:
 - query_rewrite 禁止为空；如果当前问题已经明确，必须原样复制当前用户问题。
 - “办理时间是什么”“什么时候可以办理”“几点办理”“窗口工作时间”等常规办事时间问题属于 simple_fact，走 retrieve_local。
 - 只有出现“今天”“本周”“这周”“本学期”“今年”“当前”“现在是否开放”“最新通知”“放假期间”等需要实时状态的信息，才属于 time_sensitive。
+- “现在”“目前”只有与是否开放、还能办理、最新通知、截止时间等动态状态语义共现时，才属于 time_sensitive；固定地点、固定材料、固定流程确认优先按本地知识库判断。
 - “今天的国家新闻”“国内新闻”“国际新闻”“社会新闻”等通用新闻问题属于 time_sensitive，必须按当前问题联网检索，禁止继承上一轮校园业务名。
+- “校园新闻”“山东大学新闻”“本科教学新闻”“教务新闻”等校内信息查询不要直接按通用新闻处理，应结合问题语义判断。
 - 多轮追问里的“它”“这个业务”“该流程”必须优先继承上一轮用户问题中的业务名。
 - 最近一轮用户问题是：{last_user_question or "无"}。
 - 如果当前问题包含“它”“这个”“该业务”等代词，query_rewrite 必须从“最近一轮用户问题”继承业务名，禁止从助手回答中提取窗口号、楼宇、校区、办公室作为业务名。
@@ -223,6 +268,28 @@ JSON schema：
     return _apply_route_contract(result, question, last_user_question)
 
 
+def _precheck_deterministic_route(question: str) -> dict | None:
+    if _is_social_query(question):
+        return _make_rule_result(
+            intent="ood",
+            route="refuse",
+            reason="用户输入是社交问候或寒暄，不属于知识库检索问答请求。",
+            query_rewrite=str(question or "").strip(),
+            rule_name="social_query_precheck",
+        )
+
+    if _is_global_web_query(question):
+        return _make_rule_result(
+            intent="time_sensitive",
+            route="retrieve_web",
+            reason="用户询问通用新闻或外部实时信息，需要按当前问题联网检索。",
+            query_rewrite=str(question or "").strip(),
+            rule_name="global_web_query_precheck",
+        )
+
+    return None
+
+
 def _parse_strict_json(response_text: str) -> dict:
     text = response_text.strip()
     try:
@@ -260,21 +327,26 @@ def _normalize_route_fields(result: dict) -> dict:
 
 
 def _apply_route_contract(result: dict, question: str, last_user_question: str) -> dict:
+    original = dict(result)
     if _is_social_query(question):
-        return {
-            "intent": "ood",
-            "route": "refuse",
-            "reason": "用户输入是社交问候或寒暄，不属于知识库检索问答请求。",
-            "query_rewrite": question.strip(),
-        }
+        return _make_rule_result(
+            intent="ood",
+            route="refuse",
+            reason="用户输入是社交问候或寒暄，不属于知识库检索问答请求。",
+            query_rewrite=question.strip(),
+            rule_name="social_query_contract",
+            original=original,
+        )
 
     if _is_global_web_query(question):
-        return {
-            "intent": "time_sensitive",
-            "route": "retrieve_web",
-            "reason": "用户询问通用新闻或外部实时信息，需要按当前问题联网检索。",
-            "query_rewrite": question.strip(),
-        }
+        return _make_rule_result(
+            intent="time_sensitive",
+            route="retrieve_web",
+            reason="用户询问通用新闻或外部实时信息，需要按当前问题联网检索。",
+            query_rewrite=question.strip(),
+            rule_name="global_web_query_contract",
+            original=original,
+        )
 
     resolved_query = _resolve_followup_query(
         question=question,
@@ -292,21 +364,35 @@ def _apply_route_contract(result: dict, question: str, last_user_question: str) 
         service_name = question_service or resolved_service or history_service
 
     if service_name and explicit_realtime:
-        query_rewrite = _rewrite_realtime_query(question, service_name)
-        return {
-            "intent": "time_sensitive",
-            "route": "retrieve_web",
-            "reason": "用户问题包含明确实时状态词，需要执行时效检索。",
-            "query_rewrite": query_rewrite,
-        }
+        query_rewrite = _rewrite_realtime_query(question, service_name, resolved_query)
+        return _make_rule_result(
+            intent="time_sensitive",
+            route="retrieve_web",
+            reason="用户问题包含明确实时状态语义，需要执行时效检索。",
+            query_rewrite=query_rewrite,
+            rule_name="explicit_realtime_service_query",
+            original=original,
+        )
 
     if service_name and routine_time:
-        return {
-            "intent": "simple_fact",
-            "route": "retrieve_local",
-            "reason": "用户询问常规办理时间，属于本地知识库事实查询。",
-            "query_rewrite": f"{service_name}办理时间",
-        }
+        return _make_rule_result(
+            intent="simple_fact",
+            route="retrieve_local",
+            reason="用户询问常规办理时间，属于本地知识库事实查询。",
+            query_rewrite=_rewrite_routine_time_query(question, service_name, resolved_query),
+            rule_name="routine_time_service_query",
+            original=original,
+        )
+
+    if _should_promote_to_complex_local(question, resolved_query, result):
+        return _make_rule_result(
+            intent="complex_reasoning",
+            route="retrieve_local",
+            reason="用户问题涉及制度条件、后果或综合要求归纳，需要整合本地知识库片段回答。",
+            query_rewrite=resolved_query or result["query_rewrite"],
+            rule_name="complex_local_policy_query",
+            original=original,
+        )
 
     expected_route = ROUTE_BY_INTENT[result["intent"]]
     if result["route"] != expected_route:
@@ -314,6 +400,48 @@ def _apply_route_contract(result: dict, question: str, last_user_question: str) 
             f"intent 与 route 不一致：intent={result['intent']}, "
             f"route={result['route']}, expected={expected_route}"
         )
+    return _with_decision_metadata(result)
+
+
+def _make_rule_result(
+    intent: str,
+    route: str,
+    reason: str,
+    query_rewrite: str,
+    rule_name: str,
+    original: dict | None = None,
+) -> dict:
+    result = {
+        "intent": intent,
+        "route": route,
+        "reason": reason,
+        "query_rewrite": query_rewrite,
+        "decision_source": "rule_precheck" if original is None else "llm_with_rule_adjustment",
+        "rule_applied": True,
+        "rule_name": rule_name,
+        "rule_reason": reason,
+        "original_intent": original.get("intent", "") if original else "",
+        "original_route": original.get("route", "") if original else "",
+        "original_query_rewrite": original.get("query_rewrite", "") if original else "",
+    }
+    expected_route = ROUTE_BY_INTENT[result["intent"]]
+    if result["route"] != expected_route:
+        raise ValueError(
+            f"规则路由结果不一致：intent={result['intent']}, "
+            f"route={result['route']}, expected={expected_route}"
+        )
+    return result
+
+
+def _with_decision_metadata(result: dict) -> dict:
+    result = dict(result)
+    result.setdefault("decision_source", "llm")
+    result.setdefault("rule_applied", False)
+    result.setdefault("rule_name", "")
+    result.setdefault("rule_reason", "")
+    result.setdefault("original_intent", "")
+    result.setdefault("original_route", "")
+    result.setdefault("original_query_rewrite", "")
     return result
 
 
@@ -351,7 +479,12 @@ def _is_followup_question(question: str) -> bool:
 
 
 def _has_explicit_realtime(question: str) -> bool:
-    return any(term in question for term in REALTIME_TERMS)
+    text = str(question or "").strip()
+    if not text:
+        return False
+    if "现在" in text or "目前" in text:
+        return any(term in text for term in NOW_STATUS_TERMS)
+    return any(term in text for term in REALTIME_TERMS if term not in {"现在", "目前"})
 
 
 def _has_routine_time_intent(question: str) -> bool:
@@ -360,7 +493,11 @@ def _has_routine_time_intent(question: str) -> bool:
 
 def _is_global_web_query(question: str) -> bool:
     text = str(question or "").strip()
-    return any(term in text for term in GLOBAL_WEB_TERMS)
+    if any(term in text for term in LOCAL_NEWS_EXCLUSION_TERMS):
+        return False
+    if any(term in text for term in GLOBAL_WEB_TERMS):
+        return True
+    return any(term in text for term in GLOBAL_WEB_NEWS_TERMS)
 
 
 def _is_social_query(question: str) -> bool:
@@ -371,7 +508,9 @@ def _is_social_query(question: str) -> bool:
     return normalized in SOCIAL_QUERIES
 
 
-def _rewrite_realtime_query(question: str, service_name: str) -> str:
+def _rewrite_realtime_query(question: str, service_name: str, model_query: str = "") -> str:
+    if _query_keeps_service(model_query, service_name):
+        return model_query.strip()
     if "今天" in question or "今日" in question:
         return f"今天{service_name}业务是否开放"
     if "本周" in question or "这周" in question or "本星期" in question:
@@ -385,6 +524,26 @@ def _rewrite_realtime_query(question: str, service_name: str) -> str:
     return f"{service_name}业务当前是否开放"
 
 
+def _rewrite_routine_time_query(question: str, service_name: str, model_query: str = "") -> str:
+    text = str(question or "").strip()
+    if any(term in text for term in EXTRA_SLOT_TERMS) and _query_keeps_service(model_query, service_name):
+        return model_query.strip()
+    return f"{service_name}办理时间"
+
+
+def _query_keeps_service(query: str, service_name: str) -> bool:
+    query = str(query or "").strip()
+    service_name = str(service_name or "").strip()
+    return bool(query and service_name and service_name in query)
+
+
+def _should_promote_to_complex_local(question: str, resolved_query: str, result: dict) -> bool:
+    if result.get("intent") != "simple_fact" or result.get("route") != "retrieve_local":
+        return False
+    text = f"{question} {resolved_query}".replace("？", "").replace("?", "")
+    return any(pattern in text for pattern in COMPLEX_LOCAL_PATTERNS)
+
+
 def _extract_business_name(question: str) -> str:
     text = _clean_question_text(question)
     if not text:
@@ -395,6 +554,8 @@ def _extract_business_name(question: str) -> str:
     service = SERVICE_SUFFIX_PATTERN.split(text, maxsplit=1)[0]
     service = service.strip(" ，。！？?；;：:")
     service = _normalize_service_name(_remove_time_prefix(service))
+    if _has_parallel_service(service):
+        return ""
     if len(service) >= 2:
         return service
 
@@ -420,7 +581,7 @@ def _normalize_verb_object_service(text: str) -> str:
 
 
 def _remove_time_prefix(text: str) -> str:
-    for prefix in ("今天", "今日", "本周", "这周", "本星期", "本月", "本学期", "今年", "当前", "现在", "目前", "最新"):
+    for prefix in TIME_PREFIXES:
         if text.startswith(prefix):
             return text[len(prefix):]
     return text
@@ -428,6 +589,7 @@ def _remove_time_prefix(text: str) -> str:
 
 def _normalize_service_name(text: str) -> str:
     service = text.strip(" ，。！？?；;：:")
+    service = _strip_action_prefix(service)
     for marker in ("的时间和材料", "时间和材料", "的时间和", "时间和", "的材料", "材料"):
         if service.endswith(marker):
             service = service[: -len(marker)]
@@ -436,7 +598,24 @@ def _normalize_service_name(text: str) -> str:
             service = service[: -len(suffix)]
     if service.endswith("手续办理"):
         service = service[:-2]
+    return _strip_action_prefix(service.strip(" ，。！？?；;：:"))
+
+
+def _strip_action_prefix(text: str) -> str:
+    service = str(text or "").strip()
+    changed = True
+    while changed:
+        changed = False
+        for prefix in ACTION_PREFIXES:
+            if service.startswith(prefix) and len(service) > len(prefix) + 1:
+                service = service[len(prefix):]
+                changed = True
+                break
     return service
+
+
+def _has_parallel_service(text: str) -> bool:
+    return bool(PARALLEL_SERVICE_PATTERN.fullmatch(str(text or "").strip()))
 
 
 def _clean_question_text(question: str) -> str:
